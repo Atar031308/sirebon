@@ -16,7 +16,7 @@ class USerSeeder extends Seeder
     {
         User::truncate();
         User::create([
-            'name' => 'Admin Aplikasi',
+            'name' => 'Admin',
             'level' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345'),
@@ -24,7 +24,7 @@ class USerSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'karyawan Aplikasi',
+            'name' => 'karyawan',
             'level' => 'karyawan',
             'email' => 'karyawan@gmail.com',
             'password' => bcrypt('karyawan123'),
