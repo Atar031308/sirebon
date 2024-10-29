@@ -32,110 +32,41 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
             @if (auth()->user()->level == "admin")
-              <li class="nav-item active">
-                <a
-                  data-bs-toggle="collapse"
-                  href="#dashboard"
-                  class="collapsed"
-                  aria-expanded="false"
-                >
-
+            <li class="nav-item">
+                <a href="{{ route('home') }}">
                   <i class="fas fa-home"></i>
-                  <p>Beranda</p>        
-                </a>   
+                  <p>Beranda</p>
+                </a>
               </li>
-              <li class="nav-section">
+              <!-- <li class="nav-section">
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                 </span>
                 <h4 class="text-section"></h4>
-              </li>
+              </li> -->
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-layer-group"></i>
-                  <p>Rekening Pembayaran Retribusi</p>
-                  <span class="caret"></span>
+                <a href="{{ route('rekening_pembayaran') }}">
+                  <i class="fas fa-wallet"></i>
+                  <p>Rekening Pembayaran</p>
                 </a>
-               
               </li>
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                  <i class="fas fa-th-list"></i>
-                  <p>Kategori Retribusi </p>
-                  <span class="caret"></span>
+                <a href="{{ route('Kategori_retribusi') }}">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                  <p>Kategori retribusi</p>
                 </a>
-                <div class="collapse" id="sidebarLayouts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="sidebar-style-2.html">
-                        <span class="sub-item">Sidebar Style 2</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="icon-menu.html">
-                        <span class="sub-item">Icon Menu</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
+              </li>            
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#forms">
+                <a href="{{ route('Kapal_retribusi') }}">
                   <i class="fas fa-pen-square"></i>
-                  <p>Wajib Retribusi</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="forms">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="forms/forms.html">
-                        <span class="sub-item">Basic Form</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#tables">
-                  <i class="fas fa-table"></i>
                   <p>Kapal Wajib Retribusi</p>
-                  <span class="caret"></span>
                 </a>
-                <div class="collapse" id="tables">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="tables/tables.html">
-                        <span class="sub-item">Basic Table</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="tables/datatables.html">
-                        <span class="sub-item">Datatables</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#maps">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p>Pembayaran Retribusi</p>
-                  <span class="caret"></span>
+                <a href="{{ route('Pembayaran_retribusi') }}">
+                  <i class="fas fa-pen-square"></i>
+                  <p>Pembayaran retribusi</p>
                 </a>
-                <div class="collapse" id="maps">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="maps/googlemaps.html">
-                        <span class="sub-item">Google Maps</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="maps/jsvectormap.html">
-                        <span class="sub-item">Jsvectormap</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
@@ -172,15 +103,15 @@
                   <p>Beranda</p>        
                 </a>   
               </li>
-              <li class="nav-section">
+              <!-- <li class="nav-section">
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                 </span>
                 <h4 class="text-section"></h4>
-              </li>
+              </li> -->
               @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                <a data-bs-toggle="collapse" href="#">
                   <i class="fas fa-th-list"></i>
                   <p>Kategori Retribusi </p>
                   <span class="caret"></span>
@@ -188,7 +119,7 @@
                 @endif
                 @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-layer-group"></i>
                   <p>Kapalku</p>
                   <span class="caret"></span>
@@ -251,7 +182,7 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#maps">
                   <i class="fas fa-map-marker-alt"></i>
-                  <p>Konfirmasi Pembayaran Retribusi</p>
+                  <p>Konfirmasi Pembayaran</p>
                   <span class="caret"></span>
                 </a>
                 @endif
