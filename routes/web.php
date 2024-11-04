@@ -97,6 +97,6 @@ Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::get('/Kapalku', [KapalkuController::class,'Kapalku'])->name('Kapalku');
     Route::get('/Wajib', [WajibController::class,'Wajib'])->name('Wajib');
     Route::get('/Konfirmasi', [KonfirmasiController::class,'Konfirmasi_pembayaran'])->name('Konfirmasi_pembayaran');
-
+    Route::resource('/products', \App\Http\Controllers\ProductController::class);
      
 });

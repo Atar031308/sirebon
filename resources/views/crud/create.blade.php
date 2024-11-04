@@ -15,7 +15,9 @@
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
                         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+                        
                             @csrf
+
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">IMAGE</label>
                                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">
