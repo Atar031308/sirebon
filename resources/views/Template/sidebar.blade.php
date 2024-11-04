@@ -69,7 +69,7 @@
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
+                  <i class="fa-solid fa-cloud"></i>
                   <p>Laporan</p>
                   <span class="caret"></span>
                 </a>
@@ -115,7 +115,7 @@
               @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
               <a href="{{ route('Wajib') }}">
-                  <i class="fas fa-pen-square"></i>
+                <i class="fa-solid fa-pen-clip"></i>
                   <p>Wajib Retribusi</p>
                 </a>
               </li>
@@ -124,7 +124,7 @@
               @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
               <a href="{{ route('Konfirmasi_pembayaran') }}">
-                  <i class="fas fa-pen-square"></i>
+                <i class="fa-solid fa-coins"></i>
                   <p>Konfirmasi Pembayaran</p>
                 </a>
               </li>
@@ -132,7 +132,7 @@
                
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
+                  <i class="fa-solid fa-cloud"></i>
                   <p>Laporan</p>
                   <span class="caret"></span>
                 </a>
