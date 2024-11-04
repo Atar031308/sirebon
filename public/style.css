@@ -21,7 +21,7 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 36px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 0px;
   text-align: center;
 }
 
@@ -65,8 +65,8 @@ body {
 .logo{
   width: 100px;
   height: 100px;
-  margin-left: 95px;
-  border-radius: 50px;
+  margin-left: 90px;
+  border-radius: 100px;
 }
 
 .cut {

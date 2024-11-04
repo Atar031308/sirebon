@@ -66,7 +66,7 @@
                         class="dropdown-title d-flex justify-content-between align-items-center"
                       >
                         Messages
-                        <a href="#" class="small">Mark all as read</a>
+                        <a href="#" class="small">Anda</a>
                       </div>
                     </li>
                     <li>
@@ -75,40 +75,40 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/jm_denis.jpg"
+                                src="assets/img/user.png"
                                 alt="Img Profile"
                               />
                             </div>
                             <div class="notif-content">
-                              <span class="subject">Jimmy Denis</span>
-                              <span class="block"> How are you ? </span>
+                              <span class="subject">Isal</span>
+                              <span class="block"> Dimana min ? </span>
                               <span class="time">5 minutes ago</span>
                             </div>
                           </a>
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/chadengle.jpg"
+                                src="assets/img/user.png"
                                 alt="Img Profile"
                               />
                             </div>
                             <div class="notif-content">
-                              <span class="subject">Chad</span>
-                              <span class="block"> Ok, Thanks ! </span>
+                              <span class="subject">Ikbal</span>
+                              <span class="block"> Terimakasih min ! </span>
                               <span class="time">12 minutes ago</span>
                             </div>
                           </a>
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/mlane.jpg"
+                                src="assets/img/user.png"
                                 alt="Img Profile"
                               />
                             </div>
                             <div class="notif-content">
-                              <span class="subject">Jhon Doe</span>
+                              <span class="subject">Zahpa</span>
                               <span class="block">
-                                Ready for the meeting today...
+                                Ready min !!
                               </span>
                               <span class="time">12 minutes ago</span>
                             </div>
@@ -116,12 +116,12 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/talha.jpg"
+                                src="assets/img/user.png"
                                 alt="Img Profile"
                               />
                             </div>
                             <div class="notif-content">
-                              <span class="subject">Talha</span>
+                              <span class="subject">Atar</span>
                               <span class="block"> Hi, Apa Kabar ? </span>
                               <span class="time">17 minutes ago</span>
                             </div>
@@ -162,21 +162,27 @@
                       <div class="notif-scroll scrollbar-outer">
                         <div class="notif-center">
                           <a href="#">
-                            <div class="notif-icon notif-primary">
-                              <i class="fa fa-user-plus"></i>
+                          <div class="notif-img">
+                              <img
+                                src="assets/img/user.png"
+                                alt="Img Profile"
+                              />
                             </div>
                             <div class="notif-content">
-                              <span class="block"> New user registered </span>
+                              <span class="block"> Faisal </span>
                               <span class="time">5 minutes ago</span>
                             </div>
                           </a>
                           <a href="#">
-                            <div class="notif-icon notif-success">
-                              <i class="fa fa-comment"></i>
+                          <div class="notif-img">
+                              <img
+                                src="assets/img/user.png"
+                                alt="Img Profile"
+                              />
                             </div>
                             <div class="notif-content">
                               <span class="block">
-                                Rahmad commented on Admin
+                                Ikbal
                               </span>
                               <span class="time">12 minutes ago</span>
                             </div>
@@ -184,23 +190,26 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/profile2.jpg"
+                                src="assets/img/user.png"
                                 alt="Img Profile"
                               />
                             </div>
                             <div class="notif-content">
                               <span class="block">
-                                Reza send messages to you
+                                Zahpa
                               </span>
                               <span class="time">12 minutes ago</span>
                             </div>
                           </a>
                           <a href="#">
-                            <div class="notif-icon notif-danger">
-                              <i class="fa fa-heart"></i>
+                          <div class="notif-img">
+                              <img
+                                src="assets/img/user.png"
+                                alt="Img Profile"
+                              />
                             </div>
                             <div class="notif-content">
-                              <span class="block"> Farrah liked Admin </span>
+                              <span class="block"> Atarr </span>
                               <span class="time">17 minutes ago</span>
                             </div>
                           </a>
@@ -302,7 +311,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="assets/img/profile.jpg"
+                        src="assets/img/user.png"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -318,14 +327,17 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="assets/img/profile.jpg"
+                              src="assets/img/user.png"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
-                            <p class="text-muted">hello@example.com</p>
+                          <span class="profile-username">
+                      <span class="op-7"></span>
+                      <span class="fw-bold">{{ auth()->user()->name }}</span>
+                    </span>
+                            <p class="text-muted"></p>
                             <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"

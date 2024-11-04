@@ -55,7 +55,7 @@
               </div> -->
             </div>
             <div class="row">
-              <h1>Halaman Rekening</h1>
+              <h1>Halaman Wajib Retribusi</h1>
                           
            
                     </div>

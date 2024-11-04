@@ -2,14 +2,14 @@
 <html lang="in">
 <head>
     <meta charset="UTF-8">
-    <title>Judul halaman</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form action="{{ route('postlogin') }}" method="post">
     @csrf
     <div class="form">
-        <img class="logo" src="assets/img/user.png">
+        <img class="logo" src="assets/img/gambar-login.jpeg">
       <div class="title txlogin">Login</div>
       <div class="input-container ic1">
         <input id="firstname" class="input" name="email" type="text" placeholder=" " />
@@ -22,6 +22,8 @@
         <label for="password" class="placeholder">Password</label>
       </div>
       <button type="text" class="submit">submit</button>
+      <a>Apakah anda</a>
+      <a href="forgot-password">lupa sandi?</a>
     </div>
     </form>
 </body>
