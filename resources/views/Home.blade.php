@@ -7,7 +7,7 @@
   <body>
 @include('Template.sidebar')
       <!-- End Sidebar -->
-
+<h1>tu67i</h1>
       <div class="main-panel">
         <div class="main-header">
           <div class="main-header-logo">
