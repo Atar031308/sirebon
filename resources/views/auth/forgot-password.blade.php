@@ -33,7 +33,8 @@
         <div class="cut"></div>
         <label for="firstname" class="placeholder">Email</label>
       </div>
-      <button type="text" class="submit">submit</button>
+      <button type="text" class="submit">Kirim</button>
+      <a href="login">Kembali</a>
       @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

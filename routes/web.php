@@ -11,6 +11,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KapalkuController;
 use App\Http\Controllers\WajibController;
 use App\Http\Controllers\KonfirmasiController;
+use App\Http\Controllers\ProfilController;
 
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
@@ -84,7 +85,6 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class,'halamanLogin'])->name('login');
-Route::get('/register', [LoginController::class,'halamanRegister'])->name('register');
 Route::post('/postlogin', [LoginController::class,'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
@@ -98,5 +98,6 @@ Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::get('/Wajib', [WajibController::class,'Wajib'])->name('Wajib');
     Route::get('/Konfirmasi', [KonfirmasiController::class,'Konfirmasi_pembayaran'])->name('Konfirmasi_pembayaran');
     Route::resource('/products', \App\Http\Controllers\ProductController::class);
+    Route::get('/Profile', [ProfilController::class,'Halaman_profile'])->name('Halaman_profile');
      
 });

@@ -11,10 +11,6 @@ class LoginController extends Controller
         return view('Login.Login-aplikasi');
     }
 
-    public function halamanRegister(){
-        return view('Login.register');
-    }
-
     public function postlogin(Request $request){
         if(Auth::attempt($request->only('email','password'))){
             return redirect('/home');

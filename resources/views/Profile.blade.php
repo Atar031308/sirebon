@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   @include('Template.head')
   </head>
   <body>
@@ -46,47 +47,93 @@
               class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
             >
             </div>
-            @if (auth()->user()->level == "admin")
+            @if (auth()->user()->level == "karyawan")
             <div class="row">
-              <div class="col-md-4">
-                <div class="card card-secondary">
-                  <div class="card-body skew-shadow">
-                    <h1>Rp.0</h1>
-                    <h5 class="op-8">Jumlah Sudah Bayar</h5>
-                    <div class="pull-right">
-                      <h3 class="fw-bold op-8"></h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card card-secondary bg-secondary-gradient">
-                  <div class="card-body bubble-shadow">
-                    <h1>Rp.0</h1>
-                    <h5 class="op-8">Jumlah Belum Bayar</h5>
-                    <div class="pull-right">
-                      <h3 class="fw-bold op-8"></h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card card-secondary bg-secondary-gradient">
-                  <div class="card-body curves-shadow">
-                    <h1>Rp.0</h1>
-                    <h5 class="op-8">Jumlah Pemasukan</h5>
-                    <div class="pull-right">
-                      <h3 class="fw-bold op-8"></h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-                  
+                                <style>
+                                    .form-container {
+                                        max-width: 600px;
+                                        margin: 20px auto;
+                                        padding: 20px;
+                                        border: 1px solid #ccc;
+                                        border-radius: 8px;
+                                        background-color: #f8f9fa;
+                                    }
+                                    .form-group label {
+                                        font-weight: bold;
+                                    }
+                                    .form-control {
+                                        background-color: #e2edf7;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+
+                            <div class="form-container">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" id="username" value="namaku" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="hakAkses">Hak Akses</label>
+                                            <input type="text" class="form-control" id="hakAkses" value="Administrator" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nik">NIK</label>
+                                            <input type="text" class="form-control" id="nik" value="3674938217278893" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="namaLengkap">Nama Lengkap</label>
+                                            <input type="text" class="form-control" id="namaLengkap" value="namaku">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="telepon">Telepon</label>
+                                            <input type="text" class="form-control" id="telepon" value="081234567890" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="alamat">Alamat 0831019587446</label>
+                                            <input type="text" class="form-control" id="alamat" value="Ds. cikaso" >
+                                        </div>
+                                    </div>4
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="passwordLama">Password Lama</label>
+                                            <input type="password" class="form-control" id="passwordLama">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="passwordBaru">Password Baru</label>
+                                            <input type="password" class="form-control" id="passwordBaru">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="konfirmasiPasswordBaru">Konfirmasi Password Baru</label>
+                                            <input type="password" class="form-control" id="konfirmasiPasswordBaru">
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                </form>
+                            </div>
+
+                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+                            </body>
+                            </html>
             @endif  
                     
                    </div>
                   </div>
+                </div>
 
         @include('Template.footer')
 

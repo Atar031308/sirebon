@@ -5,6 +5,7 @@
   <head>
   @include('Template.head')
   </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
   <body>
 @include('Template.sidebar')
       <!-- End Sidebar -->
@@ -56,16 +57,61 @@
               </div> -->
             </div>
             <div class="row">
-              <h1>Halaman Konfirmasi Pembayaran</h1>
-                          
-           
+              <?php
+// Cek jika form disubmit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nama = $_POST['nama'];
+    $jumlah = $_POST['jumlah'];
+    $tanggal = $_POST['tanggal'];
+    $metode = $_POST['metode'];
+}
+?>
+
+    <div class="container mt-5">
+        <h2>Konfirmasi Pembayaran Retribusi</h2>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="nama">Nama Pembayar:</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="jumlah">Jumlah Pembayaran:</label>
+                <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggal">Tanggal Pembayaran:</label>
+                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+            </div>
+            <div class="form-group">
+                <label for="metode">Metode Pembayaran:</label>
+                <select class="form-control" id="metode" name="metode" required>
+                    <option value="tunai">Tunai</option>
+                    <option value="transfer">Transfer Bank</option>
+                    <option value="kredit">Kartu Kredit</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Konfirmasi Pembayaran</button>
+        </form>
+
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+            <h3 class="mt-5">Ringkasan Konfirmasi Pembayaran</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Nama Pembayar:</strong> <?php echo htmlspecialchars($nama); ?></li>
+                <li class="list-group-item"><strong>Jumlah Pembayaran:</strong> Rp <?php echo number_format($jumlah, 0, ',', '.'); ?></li>
+                <li class="list-group-item"><strong>Tanggal Pembayaran:</strong> <?php echo htmlspecialchars($tanggal); ?></li>
+                <li class="list-group-item"><strong>Metode Pembayaran:</strong> <?php echo htmlspecialchars($metode); ?></li>
+            </ul>
+            <div class="alert alert-success mt-3">
+                Pembayaran Anda telah dikonfirmasi! Terima kasih.
+            </div>
+        <?php endif; ?>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>           
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         @include('Template.footer')
 
@@ -285,7 +331,7 @@
     <script src="assets/js/plugin/datatables/datatables.min.js"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    
 
     <!-- jQuery Vector Maps -->
     <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
