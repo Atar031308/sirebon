@@ -6,7 +6,7 @@
     />
     <link
       rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
+      href="{{ asset('assets/img/kaiadmin/favicon.ico')}}"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -33,9 +33,9 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/kaiadmin.min.css')}}" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/demo.css')}}" />

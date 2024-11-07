@@ -44,7 +44,7 @@
                 <h4 class="text-section"></h4>
               </li> -->
               <li class="nav-item">
-                <a href="{{ route('rekening_pembayaran') }}">
+                <a href="{{ route('rekening.index') }}">
                   <i class="fas fa-wallet"></i>
                   <p>Rekening Pembayaran</p>
                 </a>
