@@ -55,16 +55,13 @@
               </div> -->
             </div>
             <div class="row">
-              <h1>Halaman kategori</h1>
+            
                           
-           
+             <h1>Halaman kategori</h1>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div> -->
-          </div>
-        </div>
+                  </div>
+
 
         @include('Template.footer')
 
@@ -284,7 +281,7 @@
     <script src="assets/js/plugin/datatables/datatables.min.js"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
 
     <!-- jQuery Vector Maps -->
     <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>

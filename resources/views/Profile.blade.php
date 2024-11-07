@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   @include('Template.head')
   </head>
   <body>
@@ -45,20 +46,92 @@
             <div
               class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
             >
-              <!-- <div>
-                <h3 class="fw-bold mb-3">Dashboard</h3>
-                <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
-              </div> -->
-              <!-- <div class="ms-md-auto py-2 py-md-0">
-                <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
-                <a href="#" class="btn btn-primary btn-round">Add Customer</a>
-              </div> -->
             </div>
+            @if (auth()->user()->level == "karyawan")
             <div class="row">
-              <h1>Halaman kapal retribusi</h1>
-                          
-           
-                    </div>
+                                <style>
+                                    .form-container {
+                                        max-width: 600px;
+                                        margin: 20px auto;
+                                        padding: 20px;
+                                        border: 1px solid #ccc;
+                                        border-radius: 8px;
+                                        background-color: #f8f9fa;
+                                    }
+                                    .form-group label {
+                                        font-weight: bold;
+                                    }
+                                    .form-control {
+                                        background-color: #e2edf7;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+
+                            <div class="form-container">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" id="username" value="namaku" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="hakAkses">Hak Akses</label>
+                                            <input type="text" class="form-control" id="hakAkses" value="Administrator" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nik">NIK</label>
+                                            <input type="text" class="form-control" id="nik" value="3674938217278893" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="namaLengkap">Nama Lengkap</label>
+                                            <input type="text" class="form-control" id="namaLengkap" value="namaku">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="telepon">Telepon</label>
+                                            <input type="text" class="form-control" id="telepon" value="081234567890" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="alamat">Alamat 0831019587446</label>
+                                            <input type="text" class="form-control" id="alamat" value="Ds. cikaso" >
+                                        </div>
+                                    </div>4
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="passwordLama">Password Lama</label>
+                                            <input type="password" class="form-control" id="passwordLama">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="passwordBaru">Password Baru</label>
+                                            <input type="password" class="form-control" id="passwordBaru">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="konfirmasiPasswordBaru">Konfirmasi Password Baru</label>
+                                            <input type="password" class="form-control" id="konfirmasiPasswordBaru">
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                                </form>
+                            </div>
+
+                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+                            </body>
+                            </html>
+            @endif  
+                    
+                   </div>
                   </div>
                 </div>
 
@@ -281,6 +354,7 @@
 
     <!-- Bootstrap Notify -->
 
+
     <!-- jQuery Vector Maps -->
     <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
     <script src="assets/js/plugin/jsvectormap/world.js"></script>
@@ -294,33 +368,6 @@
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="assets/js/setting-demo.js"></script>
     <script src="assets/js/demo.js"></script>
-    <script>
-      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#177dff",
-        fillColor: "rgba(23, 125, 255, 0.14)",
-      });
-
-      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#f3545d",
-        fillColor: "rgba(243, 84, 93, .14)",
-      });
-
-      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#ffa534",
-        fillColor: "rgba(255, 165, 52, .14)",
-      });
-    </script>
+    
   </body>
 </html>

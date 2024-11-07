@@ -7,7 +7,6 @@
   <body>
 @include('Template.sidebar')
       <!-- End Sidebar -->
-<h1>tu67i</h1>
       <div class="main-panel">
         <div class="main-header">
           <div class="main-header-logo">
@@ -47,81 +46,46 @@
             >
             </div>
             @if (auth()->user()->level == "admin")
-        <div class="row">
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
-                        >
-                          <i class="fas fa-users"></i>
-                        </div>
-                      </div>
-                    
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Sudah Bayar</p>
-                          <h4 class="card-title">0</h4>
-                        </div>
-                      </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card card-secondary">
+                  <div class="card-body skew-shadow">
+                    <h1>Rp.0</h1>
+                    <h5 class="op-8">Jumlah Sudah Bayar</h5>
+                    <div class="pull-right">
+                      <h3 class="fw-bold op-8"></h3>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-info bubble-shadow-small"
-                        >
-                          <i class="fas fa-user-check"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Belum Bayar</p>
-                          <h4 class="card-title">0</h4>
-                        </div>
-                      </div>
+              <div class="col-md-4">
+                <div class="card card-secondary bg-secondary-gradient">
+                  <div class="card-body bubble-shadow">
+                    <h1>Rp.0</h1>
+                    <h5 class="op-8">Jumlah Belum Bayar</h5>
+                    <div class="pull-right">
+                      <h3 class="fw-bold op-8"></h3>
                     </div>
                   </div>
                 </div>
-              </div>    
-
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div class="icon-big text-center icon-success bubble-shadow-small">
-                          <i class="fas fa-luggage-cart"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Belum Bayar</p>
-                          <h4 class="card-title">0</h4>
-                        </div>
-                      </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-secondary bg-secondary-gradient">
+                  <div class="card-body curves-shadow">
+                    <h1>Rp.0</h1>
+                    <h5 class="op-8">Jumlah Pemasukan</h5>
+                    <div class="pull-right">
+                      <h3 class="fw-bold op-8"></h3>
                     </div>
                   </div>
                 </div>
-              </div>    
+              </div>
+            </div>
                   
             @endif  
                     
                    </div>
                   </div>
-                </div>
-              </div>
-            </div> 
-          </div>
-        </div>
 
         @include('Template.footer')
 
