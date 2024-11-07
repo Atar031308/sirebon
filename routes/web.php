@@ -90,7 +90,7 @@ Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::get('/home', [HomeController::class,'index'])->name('home');
-    Route::get('/Rekening', [RekeningController::class,'Rekening_pembayaran'])->name('rekening_pembayaran');
+    Route::resource('rekening', RekeningController::class);
     Route::get('/Kategori', [KategoriController::class,'Kategori_retribusi'])->name('Kategori_retribusi');
     Route::get('/Kapal', [KapalController::class,'Kapal_retribusi'])->name('Kapal_retribusi');
     Route::get('/Pembayaran', [PembayaranController::class,'Pembayaran_retribusi'])->name('Pembayaran_retribusi');
