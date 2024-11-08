@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RekeningController;
-use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KategoriRetribusiController;
 use App\Http\Controllers\KapalController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KapalkuController;
@@ -91,7 +91,7 @@ Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::get('/home', [HomeController::class,'index'])->name('home');
     Route::resource('rekening', RekeningController::class);
-    Route::get('/Kategori', [KategoriController::class,'Kategori_retribusi'])->name('Kategori_retribusi');
+    Route::resource('kategori', KategoriRetribusiController::class);
     Route::get('/Kapal', [KapalController::class,'Kapal_retribusi'])->name('Kapal_retribusi');
     Route::get('/Pembayaran', [PembayaranController::class,'Pembayaran_retribusi'])->name('Pembayaran_retribusi');
     Route::get('/Kapalku', [KapalkuController::class,'Kapalku'])->name('Kapalku');

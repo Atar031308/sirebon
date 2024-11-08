@@ -50,7 +50,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('Kategori_retribusi') }}">
+                <a href="{{ route('kategori.index') }}">
                 <i class="fa-solid fa-circle-exclamation"></i>
                   <p>Kategori retribusi</p>
                 </a>

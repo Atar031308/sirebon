@@ -10,7 +10,7 @@
     @csrf
     <div class="form">
         <img class="logo" src="assets/img/kaiadmin/kapalku.png">
-      <div class="title txlogin">Login</div>
+      <div class="title txlogin">Login Sirebon</div>
       <div class="input-container ic1">
         <input id="firstname" class="input" name="email" type="email" placeholder=" " />
         <div class="cut"></div>
@@ -21,9 +21,9 @@
         <div class="cut"></div>
         <label for="password" class="placeholder">Password</label>
       </div>
-      <button type="text" class="submit">Kirim</button>
-      <a>Apakah anda</a>
-      <a href="forgot-password">lupa sandi?</a>
+      <button type="text" class="submit">Login</button>
+      <a>Apakah anda ingin</a>
+      <a href="forgot-password">merubah sandi</a>
     </div>
     </form>
 </body>

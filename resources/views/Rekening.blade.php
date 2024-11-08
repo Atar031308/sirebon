@@ -9,7 +9,7 @@
   @include('Template.sidebar')
   <!-- End Sidebar -->
 
-  <div class="main-panel">
+  <di class="main-panel">
     <div class="main-header">
       <div class="main-header-logo">
         <!-- Logo Header -->
@@ -96,9 +96,9 @@
 
 </div>
         </div>
-        
+  
     </div>
-  </div>
+
 
 
   @include('Template.footer')

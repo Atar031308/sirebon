@@ -67,39 +67,38 @@
                                 </style>
                             </head>
                             <body>
-
                             <div class="form-container">
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" value="namaku" >
+                                            <input type="text" class="form-control" id="username" value="" >
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="hakAkses">Hak Akses</label>
-                                            <input type="text" class="form-control" id="hakAkses" value="Administrator" >
+                                            <input type="text" class="form-control" id="hakAkses" value="" >
                                         </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="nik">NIK</label>
-                                            <input type="text" class="form-control" id="nik" value="3674938217278893" >
+                                            <input type="text" class="form-control" id="nik" value="" >
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="namaLengkap">Nama Lengkap</label>
-                                            <input type="text" class="form-control" id="namaLengkap" value="namaku">
+                                            <input type="text" class="form-control" id="namaLengkap" value="">
                                         </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="telepon">Telepon</label>
-                                            <input type="text" class="form-control" id="telepon" value="081234567890" >
+                                            <input type="text" class="form-control" id="telepon" value="" >
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="alamat">Alamat 0831019587446</label>
-                                            <input type="text" class="form-control" id="alamat" value="Ds. cikaso" >
+                                            <input type="text" class="form-control" id="alamat" value="" >
                                         </div>
                                     </div>4
 
