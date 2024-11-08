@@ -2,18 +2,22 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-       $this->call(UserSeeder::class);
+        DB::table('ref_banks')->insert([
+            ['nama_bank' => 'Bank BRI'],
+            ['nama_bank' => 'Bank BCA'],
+            ['nama_bank' => 'Bank Mandiri'],
+        ]);
     }
 }

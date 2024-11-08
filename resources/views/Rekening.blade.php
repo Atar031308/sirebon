@@ -39,73 +39,58 @@
     <div class="container">
       <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-        <div class="row">
-
-<div class="col">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Rekening Pembayaran</h5>
-            <hr>
-            <div class="d-flex justify-content-between mb-2">
-                <a href="{{ route('rekening.create') }}" class="btn btn-primary">Tambah Data</a>
-                <input type="text" id="searchInput" class="form-control w-25"
-                    placeholder="Cari...">
-            </div>
-            <div class="table-responsive table-bordered">
-                <table class="table text-nowrap align-middle mb-0 table-striped" id="dataTable">
-                    <thead>
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Rekening Pembayaran</h5>
+                  <hr>
+                  <div class="d-flex justify-content-between mb-2">
+                    <a href="{{ route('rekening.create') }}" class="btn btn-primary">Tambah Data</a>
+                    <input type="text" id="searchInput" class="form-control w-25" placeholder="Cari...">
+                  </div>
+                  <div class="table-responsive table-bordered">
+                    <table class="table text-nowrap align-middle mb-0 table-striped" id="dataTable">
+                      <thead>
                         <tr class="border-2 border-bottom border-primary border-0">
-                            <th scope="col" class="text-center">No.</th>
-                            <th scope="col" class="text-center">Jenis Bank</th>
-                            <th scope="col" class="text-center">Nama Pemilik</th>
-                            <th scope="col" class="text-center">Nomor Rekening</th>
-                            <th scope="col" class="text-center">Aksi</th>
+                          <th scope="col" class="text-center">No.</th>
+                          <th scope="col" class="text-center">Jenis Bank</th>
+                          <th scope="col" class="text-center">Nama Pemilik</th>
+                          <th scope="col" class="text-center">Nomor Rekening</th>
+                          <th scope="col" class="text-center">Aksi</th>
                         </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
+                      </thead>
+                      <tbody class="table-group-divider">
                         @foreach ($rekening as $index => $data)
-                            <tr>
-                                <td scope="col" class="text-center">{{ $index + 1 }}</td>
-                                <td scope="col" class="text-center">
-                                    {{ $data->refBank->nama_bank }}</td>
-                                <td scope="col" class="text-center">{{ $data->nama_akun }}</td>
-                                <td scope="col" class="text-center">{{ $data->no_rekening }}</td>
-                                <td scope="col" class="text-center">
-                                    <a href="{{ route('rekening.edit', $data->id) }}"
-                                        class="btn btn-primary btn-sm m-1">Ubah</a>
-
-                                    <form action="{{ route('rekening.destroy', $data->id) }}"
-                                        method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm m-1"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
+                          <tr>
+                            <td scope="col" class="text-center">{{ $index + 1 }}</td>
+                            <td scope="col" class="text-center">{{ $data->refBank->nama_bank }}</td>
+                            <td scope="col" class="text-center">{{ $data->nama_akun }}</td>
+                            <td scope="col" class="text-center">{{ $data->no_rekening }}</td>
+                            <td scope="col" class="text-center">
+                              <a href="{{ route('rekening.edit', $data->id) }}" class="btn btn-primary btn-sm m-1">Ubah</a>
+                              <form action="{{ route('rekening.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm m-1"
+                                  onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                              </form>
+                            </td>
+                          </tr>
                         @endforeach
-                    </tbody>
-                </table>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-
-
+          </div>
         </div>
+      </div>
     </div>
 
-</div>
+    @include('Template.footer')
 
-</div>
-        </div>
-        
-    </div>
-  </div>
-
-
-  @include('Template.footer')
-
-  <!-- Custom template | don't include it in your project! -->
-   
-  <!-- End Custom template -->
   </div>
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery-3.7.1.min.js"></script>
@@ -142,6 +127,7 @@
   <!-- Kaiadmin DEMO methods, don't include it in your project! -->
   <script src="assets/js/setting-demo.js"></script>
   <script src="assets/js/demo.js"></script>
+
   <script>
     $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
       type: "line",
@@ -149,7 +135,7 @@
       width: "100%",
       lineWidth: "2",
       lineColor: "#177dff",
-      fillColor: "rgba(23, 125, 255, 0.14)",
+      fillColor: "rgba(23, 125, 255, 0.14)"
     });
 
     $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
@@ -158,7 +144,7 @@
       width: "100%",
       lineWidth: "2",
       lineColor: "#f3545d",
-      fillColor: "rgba(243, 84, 93, .14)",
+      fillColor: "rgba(243, 84, 93, .14)"
     });
 
     $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
@@ -167,7 +153,7 @@
       width: "100%",
       lineWidth: "2",
       lineColor: "#ffa534",
-      fillColor: "rgba(255, 165, 52, .14)",
+      fillColor: "rgba(255, 165, 52, .14)"
     });
   </script>
 </body>
