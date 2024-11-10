@@ -30,9 +30,6 @@
                                     <div class="col-sm-9">
                                         <select name="id_ref_bank" id="id_ref_bank" class="form-select">
                                             <!-- Opsi statis untuk Bank BRI, Bank BCA, dan Bank Mandiri -->
-                                            <option value="1" {{ old('id_ref_bank') == 1 ? 'selected' : '' }}>Bank BRI</option>
-                                            <option value="2" {{ old('id_ref_bank') == 2 ? 'selected' : '' }}>Bank BCA</option>
-                                            <option value="3" {{ old('id_ref_bank') == 3 ? 'selected' : '' }}>Bank Mandiri</option>
 
                                             <!-- Opsi dinamis dari $refBanks -->
                                             @foreach($refBanks as $bank)

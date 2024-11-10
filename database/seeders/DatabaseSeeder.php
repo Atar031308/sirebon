@@ -14,10 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ref_banks')->insert([
-            ['nama_bank' => 'Bank BRI'],
-            ['nama_bank' => 'Bank BCA'],
-            ['nama_bank' => 'Bank Mandiri'],
-        ]);
+        // \App\Models\User::factory(10)->create();
+
+       $this->call(UserSeeder::class);
+       $this->call(BankSeeder::class);
     }
 }

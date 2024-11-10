@@ -71,19 +71,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Konfirmasi Pembayaran Retribusi</h2>
         <form method="POST" action="">
             <div class="form-group">
-                <label for="nama">Nama Pembayar:</label>
+                <label for="nama">Jenis Bank:</label>
                 <input type="text" class="form-control" id="nama" name="nama" required>
             </div>
             <div class="form-group">
-                <label for="jumlah">Jumlah Pembayaran:</label>
+                <label for="jumlah">Nominal Transfer:</label>
                 <input type="number" class="form-control" id="jumlah" name="jumlah" required>
             </div>
             <div class="form-group">
-                <label for="tanggal">Tanggal Pembayaran:</label>
+                <label for="tanggal">Nomor Rekening:</label>
                 <input type="date" class="form-control" id="tanggal" name="tanggal" required>
             </div>
             <div class="form-group">
-                <label for="metode">Metode Pembayaran:</label>
+                <label for="metode">Bukti Pembayaran:</label>
                 <select class="form-control" id="metode" name="metode" required>
                     <option value="tunai">Tunai</option>
                     <option value="transfer">Transfer Bank</option>

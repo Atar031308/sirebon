@@ -9,7 +9,7 @@
   @include('Template.sidebar')
   <!-- End Sidebar -->
 
-  <div class="main-panel">
+  <di class="main-panel">
     <div class="main-header">
       <div class="main-header-logo">
         <!-- Logo Header -->
@@ -91,6 +91,21 @@
 
     @include('Template.footer')
 
+<<<<<<< HEAD
+=======
+</div>
+        </div>
+  
+    </div>
+
+
+
+  @include('Template.footer')
+
+  <!-- Custom template | don't include it in your project! -->
+   
+  <!-- End Custom template -->
+>>>>>>> c119219b505a192762d03657a3b8f12aabc11400
   </div>
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery-3.7.1.min.js"></script>
