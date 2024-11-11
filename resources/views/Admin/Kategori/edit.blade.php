@@ -26,26 +26,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Tambah Rekening Pembayaran</h5>
                             <hr>
-                            <form action="{{ route('kategori.update', $rekening->id) }}" method="POST">
+                            <form action="{{ route('kategori.update', $kategori->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label" for="id_ref_bank">Bank</label>
+                                    <label class="col-sm-3 col-form-label">Jenis kategori</label>
                                     <div class="col-sm-9">
-                                        <select name="id_ref_bank" id="id_ref_bank" class="form-select">
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Nama Akun</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="nama_akun" class="form-control" value="{{$rekening->nama_akun}}">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Nomor Rekening</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="no_rekening" class="form-control" value="{{$rekening->no_rekening}}">
+                                        <input type="text" name="kategori" class="form-control" value="{{$kategori->kategori}}">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4">Simpan</button>
