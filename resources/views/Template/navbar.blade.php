@@ -82,7 +82,7 @@
                     </span>
                             <p class="text-muted"></p>
                             <a
-                              href="Profile"
+                              href="{{ route('Profile.index') }}"
                               class="btn btn-xs btn-secondary btn-sm"
                               >View Profile</a
                             >

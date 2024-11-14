@@ -43,4 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function Wajib_retribusi()
+    {
+        return $this->hasMany(Wajib_retribusi::class, 'id_user');
+    }
 }

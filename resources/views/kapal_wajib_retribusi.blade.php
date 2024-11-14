@@ -46,49 +46,44 @@
               <h5 class="card-title">Wajib Retribusi</h5>
               <hr>
               <div class="d-flex justify-content-between mb-2">
-                <a href="{{ route('wajib.create') }}" class="btn btn-primary">Tambah Data</a>
+                <a href="" class="btn btn-primary">Kapal Wajib Retribusi</a>
               </div>
               <div class="table-responsive table-bordered">
                 <table class="table text-nowrap align-middle mb-0 table-striped" id="dataTable">
                   <thead>
                     <tr class="border-2 border-bottom border-primary border-0">
                       <th scope="col" class="text-center">No.</th>
-                      <th scope="col" class="text-center">Nama Lengkap</th>
-                      <th scope="col" class="text-center">Telepon</th>
-                      <th scope="col" class="text-center">Nik</th>
-                      <th scope="col" class="text-center">Alamat</th>
-                      <th scope="col" class="text-center">Kelurahan</th>
-                      @if (auth()->user()->level == "admin")
-              <th scope="col" class="text-center">Aksi</th>
-            @endif
+                      <th scope="col" class="text-center">Nama Pemilik</th>
+                      <th scope="col" class="text-center">Nama Kapal</th>
+                      <th scope="col" class="text-center">Jenis Kapal</th>
+                      <th scope="col" class="text-center">Ukuran</th>
+                      <th scope="col" class="text-center">Aksi</th>
+
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
-                    @foreach ($wajibRetribusi as $index => $data)
-            <tr>
-              <td>{{ $index + 1 }}</td>
-              <td>{{ $data->nama }}</td>
-              <td>{{ $data->no_hp }}</td>
-              <td>{{ $data->nik }}</td>
-              <td>{{ $data->alamat }}</td>
-              <td class="text-center">{{ $data->kelurahan->nama_kelurahan }}</td>
-              @if (auth()->user()->level == "admin")
-          <td class="text-center">
-          <a href="{{ route('wajib.edit', $data->id) }}" class="btn btn-primary btn-sm m-1">Ubah</a>
-          <form action="{{ route('wajib.destroy', $data->id) }}" method="POST" style="display:inline;">
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger btn-sm m-1"
-          onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-          </form>
-          </td>
-        @endif
-            </tr>
 
-            </form>
-            </td>
-            </tr>
-          @endforeach
+                      <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->no_hp }}</td>
+                        <td>{{ $data->nik }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td scope="col" class="text-center">
+</td>
+                        @if (auth()->user()->level == "admin")
+                        <td class="text-center">
+                          <a href="" class="btn btn-primary btn-sm m-1">Ubah</a>
+                          <form action="" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm m-1"
+                              onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                              @endif
+                          </form>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -100,7 +95,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       </div>
     </div>
-
+        
     @include('Template.footer')
 
     <!-- Custom template | don't include it in your project! -->
@@ -131,7 +126,7 @@
   <script src="assets/js/kaiadmin.min.js"></script>
 
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       $('#dataTable').DataTable(); // Mengaktifkan DataTables
     });
   </script>

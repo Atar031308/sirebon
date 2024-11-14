@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class KapalController extends Controller
 {
-    public function Kapal_retribusi(){
+    public function index(){
         return view('Kapal-retribusi');
     } 
 }

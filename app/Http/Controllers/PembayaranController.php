@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
 {
-    public function Pembayaran_retribusi(){
+    public function index(){
         return view('Pembayaran-retribusi');
     } 
 }

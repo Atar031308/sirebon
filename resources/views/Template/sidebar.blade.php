@@ -32,7 +32,7 @@
             <ul class="nav nav-secondary">
             @if (auth()->user()->level == "admin")
             <li class="nav-item">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home.index') }}">
                   <i class="fas fa-home"></i>
                   <p>Beranda</p>
                 </a>
@@ -56,13 +56,19 @@
                 </a>
               </li>            
               <li class="nav-item">
-                <a href="{{ route('Kapal_retribusi') }}">
+                <a href="{{ route('wajib.index') }}">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                  <p>Wajib retribusi</p>
+                </a>
+              </li>            
+              <li class="nav-item">
+                <a href="{{ route('Kapal.index') }}">
                  <i class="fa-solid fa-pen-to-square"></i>
                   <p>Kapal Wajib Retribusi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('Pembayaran_retribusi') }}">
+                <a href="{{ route('Pembayaran.index') }}">
                   <i class="fas fa-pen-square"></i>
                   <p>Pembayaran retribusi</p>
                 </a>
@@ -77,7 +83,7 @@
                   <ul class="nav nav-collapse">
                     <li>
                       <a href="charts/charts.html">
-                        <span class="sub-item">Retribusi Pembayaran</span>
+                        <span class="sub-item">Retribusi</span>
                       </a>
                     </li>
                     <li>
@@ -91,21 +97,15 @@
 
             @if (auth()->user()->level == "karyawan")
             <li class="nav-item">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('kategori.index') }}">
                    <i class="fa-solid fa-circle-exclamation"></i>
                   <p>Kategori retribusi</p>
                 </a>
               </li>
-              <!-- <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section"></h4>
-              </li> -->
 
               @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
-              <a href="{{ route('Kapalku') }}">
+              <a href="{{ route('Kapalku.index') }}">
                 <i class="fa-solid fa-ship"></i>
                   <p>Kapalku</p>
                 </a>
@@ -114,7 +114,7 @@
           
               @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
-              <a href="{{ route('Wajib') }}">
+              <a href="{{ route('Wajib.index') }}">
                 <i class="fa-solid fa-pen-clip"></i>
                   <p>Wajib Retribusi</p>
                 </a>
@@ -123,7 +123,7 @@
               
               @if (auth()->user()->level == "karyawan")
               <li class="nav-item">
-              <a href="{{ route('Konfirmasi_pembayaran') }}">
+              <a href="{{ route('Konfirmasi.index') }}">
                 <i class="fa-solid fa-coins"></i>
                   <p>Konfirmasi Pembayaran</p>
                 </a>
