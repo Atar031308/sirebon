@@ -65,8 +65,8 @@
 
                       <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $data->nama }}</td>
-                        <td>{{ $data->no_hp }}</td>
+                        <td>{{ $data->nama_pemilik }}</td>
+                        <td>{{ $data->nam }}</td>
                         <td>{{ $data->nik }}</td>
                         <td>{{ $data->alamat }}</td>
                         <td scope="col" class="text-center">

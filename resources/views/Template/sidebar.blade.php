@@ -57,19 +57,19 @@
               </li>            
               <li class="nav-item">
                 <a href="{{ route('wajib.index') }}">
-                <i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa-solid fa-anchor"></i>
                   <p>Wajib retribusi</p>
                 </a>
               </li>            
               <li class="nav-item">
                 <a href="{{ route('Kapal.index') }}">
-                 <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-sailboat"></i>
                   <p>Kapal Wajib Retribusi</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('Pembayaran.index') }}">
-                  <i class="fas fa-pen-square"></i>
+                <i class="fa-solid fa-money-bill"></i>
                   <p>Pembayaran retribusi</p>
                 </a>
               </li>
@@ -92,6 +92,7 @@
                       </a>
                     </li>
               @endif
+              
 
 
 
@@ -116,7 +117,7 @@
               <li class="nav-item">
               <a href="{{ route('Wajib.index') }}">
                 <i class="fa-solid fa-pen-clip"></i>
-                  <p>Wajib Retribusi</p>
+                  <p>Kapal Wajib Retribusi</p>
                 </a>
               </li>
                 @endif

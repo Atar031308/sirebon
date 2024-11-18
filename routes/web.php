@@ -98,6 +98,8 @@ Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::resource('Kapalku', KapalkuController::class);
     Route::resource('Wajib', WajibController::class);
     Route::resource('Konfirmasi', KonfirmasiController::class);
+    Route::post('/konfirmasi/confirm', [KonfirmasiController::class, 'confirm'])->name('konfirmasi.confirm');
+    Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('Konfirmasi.index');
     Route::resource('Profile', ProfilController::class);
      
 });

@@ -51,31 +51,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $metode = $_POST['metode'];
 }
 ?>
-
           <div class="container mt-5">
             <h2>Konfirmasi Pembayaran Retribusi</h2>
-            <form method="POST" action="">
+            <form action="{{ route('konfirmasi.confirm') }}" method="post" enctype="multipart/form-data">
+              @csrf
+
+              @if (session('success'))
+          <div class="alert alert-success">
+          {{ session('success') }}
+          </div>
+        @endif
+
               <div class="form-group">
-                <label for="nama">Jenis Bank:</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
-              </div>
-              <div class="form-group">
-                <label for="jumlah">Nominal Transfer:</label>
-                <input type="number" class="form-control" id="jumlah" name="jumlah" required>
-              </div>
-              <div class="form-group">
-                <label for="tanggal">Nomor Rekening:</label>
-                <input type="date" class="form-control" id="tanggal" name="tanggal" required>
-              </div>
-              <div class="form-group">
-                <label for="metode">Bukti Pembayaran:</label>
-                <select class="form-control" id="metode" name="metode" required>
-                  <option value="tunai">Tunai</option>
-                  <option value="transfer">Transfer Bank</option>
-                  <option value="kredit">Kartu Kredit</option>
+                <label for="id_ref_bank">Jenis Bank:</label>
+                <select id="id_ref_bank" name="id_ref_bank" class="form-control" required>
+                  <option value="">Pilih Jenis Bank</option>
+                  @foreach ($banks as $bank)
+            <option value="{{ $bank->id }}" {{ old('id_ref_bank') == $bank->id ? 'selected' : '' }}>
+            {{ $bank->nama_bank }}
+            </option>
+          @endforeach
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Konfirmasi Pembayaran</button>
+
+              <div class="form-group">
+                <label for="nominal_transfer">Nominal Transfer:</label>
+                <input type="number" id="nominal_transfer" name="nominal_transfer" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="id_ms_rekening">Nomor Rekening:</label>
+                <select id="id_ms_rekening" name="id_ms_rekening" class="form-control" required>
+                  <option value="">Pilih Rekening</option>
+                  @foreach ($msRekenings as $rekening)
+            <option value="{{ $rekening->id }}" {{ old('id_ms_rekening') == $rekening->id ? 'selected' : '' }}>
+            {{ $rekening->no_rekening }} ({{ $rekening->nama_akun }})
+            </option>
+          @endforeach
+                </select>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="formFile" class="form-label">Bukti Pembayaran:</label>
+                <input class="form-control" type="file" id="formFile" name="file_bukti" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Kirim</button>
             </form>
 
             <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
@@ -83,8 +104,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul class="list-group">
               <li class="list-group-item"><strong>Nama Pembayar:</strong> <?php  echo htmlspecialchars($nama); ?></li>
               <li class="list-group-item"><strong>Jumlah Pembayaran:</strong> Rp
-                <?php  echo number_format($jumlah, 0, ',', '.'); ?></li>
-              <li class="list-group-item"><strong>Tanggal Pembayaran:</strong> <?php  echo htmlspecialchars($tanggal); ?>
+                <?php  echo number_format($jumlah, 0, ',', '.'); ?>
+              </li>
+              <li class="list-group-item"><strong>Tanggal Pembayaran:</strong>
+                <?php  echo htmlspecialchars($tanggal); ?>
               </li>
               <li class="list-group-item"><strong>Metode Pembayaran:</strong> <?php  echo htmlspecialchars($metode); ?>
               </li>

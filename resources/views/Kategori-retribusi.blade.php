@@ -54,7 +54,7 @@
                     <thead>
                       <tr class="border-2 border-bottom border-primary border-0">
                         <th scope="col" class="text-center">No.</th>
-                        <th scope="col" class="text-center">Jenis Kategori</th>
+                        <th scope="col" class="text-center">Kategori retribusi</th>
                         @if (auth()->user()->level == "admin")
                           <th scope="col" class="text-center">Aksi</th>
                         @endif
@@ -81,10 +81,10 @@
                       @endforeach
                     </tbody>
                   </table>
-                </div>
-              </div>
+                  </div>
             </div>
           </div>
+        </div>
         </div>
 
         @include('Template.footer')
