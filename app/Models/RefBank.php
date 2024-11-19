@@ -12,7 +12,7 @@ class RefBank extends Model
     protected $fillable = ['nama_bank'];
 
     public function MsRekening(){
-        return $this->hasMany(MsRekening::class, 'id_ref_bank');
+        return $this->hasOne(MsRekening::class, 'id_ref_bank');
     }
 
     

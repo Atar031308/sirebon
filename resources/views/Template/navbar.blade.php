@@ -5,18 +5,6 @@
               <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
               >
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <button type="submit" class="btn btn-search pe-1">
-                      <i class="fa fa-search search-icon"></i>
-                    </button>
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Search ..."
-                    class="form-control"
-                  />
-                </div>
               </nav>
 
               <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
@@ -81,11 +69,12 @@
                       <span class="fw-bold">{{ auth()->user()->name }}</span>
                     </span>
                             <p class="text-muted"></p>
+                            @if (auth()->user()->level == "karyawan")
                             <a
-                              href="Profile"
+                              href="{{ route('Profile.index') }}"
                               class="btn btn-xs btn-secondary btn-sm"
-                              >View Profile</a
-                            >
+                              >View Profile</a>
+                            @endif
                           </div>
                         </div>
                       </li>

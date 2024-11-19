@@ -5,12 +5,13 @@
     @include('Template.head')
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <body>
 
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" onclick="window.history.back();">
-            <button type="button" class="btn btn-danger">Kembali</button>
+                <button type="button" class="btn btn-danger">Kembali</button>
             </a>
         </li>
     </ul>
@@ -25,13 +26,38 @@
                         <div class="card-body">
                             <h5 class="card-title">Tambah Rekening Pembayaran</h5>
                             <hr>
-                            <form action="{{ route('kategori.update', $kategori->id) }}" method="POST">
+                            <form action="{{ route('Konfirmasi.store') }}" method="POST">
                                 @csrf
-                                @method('PUT')
+
+
                                 <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Jenis kategori</label>
+                                    <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="kategori" class="form-control" value="{{$kategori->kategori}}">
+                                        <input type="text" name="nama" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Rekening</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="rekening" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Bukti</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="bukti" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Tanggal Bayar</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="tanggal_bayar" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Tanggal Tidak Bayar</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="tanggal_tidak_bayar" class="form-control">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4">Simpan</button>

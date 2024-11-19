@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <body>
-
+    
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" onclick="window.history.back();">
-            <button type="button" class="btn btn-danger">Kembali</button>
+                <button type="button" class="btn btn-danger">Kembali</button>
             </a>
         </li>
     </ul>
@@ -28,8 +28,8 @@
                             <hr>
                             <form action="{{ route('kategori.store') }}" method="POST">
                                 @csrf
-                                
-                            
+
+
                                 <div class="row mb-3">
                                     <label class="col-sm-3 col-form-label">Nama kategori</label>
                                     <div class="col-sm-9">

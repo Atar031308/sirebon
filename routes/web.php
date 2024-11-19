@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RekeningController;
 use App\Http\Controllers\KategoriRetribusiController;
 use App\Http\Controllers\KapalController;
+use App\Http\Controllers\WajibRetribusiControllerController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KapalkuController;
 use App\Http\Controllers\WajibController;
@@ -85,19 +85,21 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class,'halamanLogin'])->name('login');
-Route::post('/postlogin', [LoginController::class,'postlogin'])->name('postlogin');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
-    Route::get('/home', [HomeController::class,'index'])->name('home');
+    Route::resource('home', HomeController::class);
     Route::resource('rekening', RekeningController::class);
     Route::resource('kategori', KategoriRetribusiController::class);
-    Route::get('/Kapal', [KapalController::class,'Kapal_retribusi'])->name('Kapal_retribusi');
-    Route::get('/Pembayaran', [PembayaranController::class,'Pembayaran_retribusi'])->name('Pembayaran_retribusi');
-    Route::get('/Kapalku', [KapalkuController::class,'Kapalku'])->name('Kapalku');
-    Route::get('/Wajib', [WajibController::class,'Wajib'])->name('Wajib');
-    Route::get('/Konfirmasi', [KonfirmasiController::class,'Konfirmasi_pembayaran'])->name('Konfirmasi_pembayaran');
-    Route::resource('/products', \App\Http\Controllers\ProductController::class);
-    Route::get('/Profile', [ProfilController::class,'Halaman_profile'])->name('Halaman_profile');
+    Route::resource('wajib', WajibController::class);
+    Route::resource('Kapal', KapalController::class);
+    Route::resource('Pembayaran', PembayaranController::class);
+    Route::resource('Kapalku', KapalkuController::class);
+    Route::resource('Wajib', WajibController::class);
+    Route::resource('Konfirmasi', KonfirmasiController::class);
+    Route::post('/konfirmasi/confirm', [KonfirmasiController::class, 'confirm'])->name('konfirmasi.confirm');
+    Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('Konfirmasi.index');
+    Route::resource('Profile', ProfilController::class);
      
 });
