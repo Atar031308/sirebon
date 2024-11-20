@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama_akun', 50);
             $table->string('no_rekening', 50);
             $table->timestamps();
-            $table->foreign('id_ref_bank')->references(columns, 'id')->on('ref_bank')->onDelete('cascade');
+            $table->foreign('id_ref_bank')->references('id')->on('ref_bank')->onDelete('cascade');
         });
     }
 
