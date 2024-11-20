@@ -24,7 +24,7 @@
                 <div class="col">
                     <div class="card profile-card">
                         <div class="card-body">
-                            <h5 class="card-title">Tambah Rekening Pembayaran</h5>
+                            <h5 class="card-title">Tambah Pembayaran retribusi</h5>
                             <hr>
                             <form action="{{ route('Konfirmasi.store') }}" method="POST">
                                 @csrf

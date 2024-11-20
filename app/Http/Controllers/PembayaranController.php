@@ -12,7 +12,7 @@ class PembayaranController extends Controller
      * Display a listing of the resource.
      */
     public function index(){
-        $konfirmasi= KonfirmasiBayar::all();
+        $konfirmasi = KonfirmasiBayar::with(['user.Wajib_retribusi'])->get();
         return view('Pembayaran-retribusi', compact('konfirmasi'));
     }
 

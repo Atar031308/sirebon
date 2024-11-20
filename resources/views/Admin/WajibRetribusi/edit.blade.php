@@ -4,12 +4,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
 @include('Template.head')
 <head>
-    <style>
-        .form-control {
-            background: #e4e7ea;
-            color: #3a4752;
-        }
-    </style>
 </head>
 <body>
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6">

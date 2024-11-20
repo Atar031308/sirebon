@@ -47,4 +47,11 @@ class KonfirmasiController extends Controller
 
         return redirect()->route('Konfirmasi.index')->with('success', 'Terima kasih telah membayar retribusi. Mohon tunggu konfirmasi dari admin.');
     }
+
+    public function create()
+{
+    // Logic untuk menampilkan halaman form pembuatan data
+    return view('Admin.konfirmasi.create'); // Ganti dengan view Anda
+}
+
 }

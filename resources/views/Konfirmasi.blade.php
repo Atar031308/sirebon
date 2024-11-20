@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
           <div class="container mt-5">
-            <h2>Konfirmasi Pembayaran Retribusi</h2>
+            <h2>Konfirmasi Pembayaran</h2>
             <form action="{{ route('konfirmasi.confirm') }}" method="post" enctype="multipart/form-data">
               @csrf
 

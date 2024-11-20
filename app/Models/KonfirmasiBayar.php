@@ -49,4 +49,8 @@ class KonfirmasiBayar extends Model
     {
         return $this->belongsTo(RefBank::class, 'id_ref_bank');
     }
+ 
+
+    
+    
 }

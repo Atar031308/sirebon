@@ -46,7 +46,11 @@ class User extends Authenticatable
 
     public function Wajib_retribusi()
 {
-    return $this->hasOne(Wajib_retribusi::class, 'id_user', 'id'); // Pastikan nama kolom foreign key benar
+    return $this->hasMany(Wajib_retribusi::class, 'id_user', 'id'); // Pastikan nama kolom foreign key benar
 }
 
+public function konfirmasi()
+{
+    return $this->hasOne(KonfirmasiBayar::class, 'id_user', 'id'); // Pastikan nama kolom foreign key benar
+}
 }

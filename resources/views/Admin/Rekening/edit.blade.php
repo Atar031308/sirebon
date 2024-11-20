@@ -24,7 +24,7 @@
                 <div class="col">
                     <div class="card profile-card">
                         <div class="card-body">
-                            <h5 class="card-title">Tambah Rekening Pembayaran</h5>
+                            <h5 class="card-title">Ubah Rekening Pembayaran</h5>
                             <hr>
                             <form action="{{ route('rekening.update', $rekening->id) }}" method="POST">
                                 @csrf
