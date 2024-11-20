@@ -12,8 +12,8 @@ class Kelurahan extends Model
     protected $table = 'kelurahan';
     protected $fillable = ['nama_kelurahan'];
 
-    public function wajibRetribusi()
+    public function Wajib_retribusi()
     {
-        return $this->hasMany(Wajib_retribusi::class, 'id_kelurahan');
+        return $this->hasOne(Wajib_retribusi::class, 'id_kelurahan');
     }
 }
