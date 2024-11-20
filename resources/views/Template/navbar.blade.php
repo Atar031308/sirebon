@@ -69,11 +69,12 @@
                       <span class="fw-bold">{{ auth()->user()->name }}</span>
                     </span>
                             <p class="text-muted"></p>
+                            @if (auth()->user()->level == "karyawan")
                             <a
                               href="{{ route('Profile.index') }}"
                               class="btn btn-xs btn-secondary btn-sm"
-                              >View Profile</a
-                            >
+                              >View Profile</a>
+                            @endif
                           </div>
                         </div>
                       </li>

@@ -3,12 +3,6 @@
 
 <head>
     @include('Template.head')
-    <style>
-        .form-control {
-            background: #e4e7ea;
-            color: #3a4752;
-        }
-    </style>
 </head>
 
 <body>

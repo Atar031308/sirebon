@@ -85,7 +85,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class,'halamanLogin'])->name('login');
-Route::post('/postlogin', [LoginController::class,'postlogin'])->name('postlogin');
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
