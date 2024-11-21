@@ -34,6 +34,9 @@
                                     <label class="col-sm-3 col-form-label">Nama kategori</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="kategori" class="form-control">
+                                        @error('kategori')
+                                            <small class="text-danger">{{$message}}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4">Simpan</button>

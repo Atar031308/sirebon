@@ -46,6 +46,9 @@
                                     <label class="col-sm-3 col-form-label">Nik</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="nik" class="form-control">
+                                        @error('nik')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">

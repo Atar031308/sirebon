@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategori', function (Blueprint $table) {
-            $table->id();
-            $table->string('kategori',50)->unique();
-            $table->timestamps();
+        Schema::table('ms_rekening', function (Blueprint $table) {
+            $table->string('no_rekening')->unique()->change();
+
         });
+        
     }
 
     /**
@@ -23,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kategori');
+        Schema::table('ms_rekening', function (Blueprint $table) {
+            //
+        });
     }
 };

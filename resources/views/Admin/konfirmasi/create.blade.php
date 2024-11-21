@@ -40,6 +40,9 @@
                                     <label class="col-sm-3 col-form-label">Rekening</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="rekening" class="form-control">
+                                        @error(rekening)
+                                            <div class="text-danger">{{message}}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">

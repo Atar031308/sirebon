@@ -29,7 +29,10 @@ class KategoriRetribusiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kategori' => 'required|string|max:50',
+            'kategori' => 'required|string|max:50|unique:kategori,kategori',
+        ], [
+            'kategori.required' => 'Nama kategori wajib diisi.',
+            'kategori.unique' => 'Nama kategori sudah terdaftar. Gunakan nama lain.',
         ]);
 
         Kategori::create($request->all());
@@ -61,8 +64,13 @@ class KategoriRetribusiController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'kategori' => 'required|string|max:50',
+            'kategori' => 'required|string|max:50|unique:kategori,kategori,' . $id,
+        ], [
+            'kategori.required' => 'Nama kategori wajib diisi.',
+            'kategori.unique' => 'Nama kategori sudah terdaftar. Gunakan nama lain.',
         ]);
+
+
         $kategori = Kategori::findOrFail($id);
         $kategori->update($request->all());
 

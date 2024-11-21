@@ -37,11 +37,13 @@ class WajibController extends Controller
         $request->validate([
             'nama' => 'required|string|max:50',
             'no_hp' => 'required|string|max:16',
-            'nik' => 'required|string|max:16',
+            'nik' => 'required|string|max:16|unique:wajib_retribusi,nik',
             'alamat' => 'required|string',
             'id_kelurahan' => 'required|exists:kelurahan,id',
             'status' => 'required|in:A,B',
 
+        ], [
+            'nik.unique' =>'Nik anda sudah terdaftar',
         ]);
         Wajib_retribusi::create([
             'id_user' => auth()->id(),
