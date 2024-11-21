@@ -28,7 +28,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">PEMBAYARAN RETRIBUSI</h5>
+                            <h5 class="card-title">Halaman Pembayaran Retribusi</h5>
                             <hr>
                             <div class="d-flex justify-content-between mb-2">
                                 <a href="{{ route('Konfirmasi.create') }}" class="btn btn-primary">Tambah Data</a>

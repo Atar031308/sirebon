@@ -40,11 +40,10 @@
       <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"></div>
         <div class="row">
-
           <div class="col">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Kategori Retribusi</h5>
+                <h5 class="card-title">Halaman Kategori Retribusi</h5>
                 <hr>
                 <div class="d-flex justify-content-between mb-2">
                   <a href="{{ route('kategori.create') }}" class="btn btn-primary">Tambah Data</a>
@@ -86,9 +85,9 @@
           </div>
         </div>
         </div>
-
+        </div>
+        </div>
         @include('Template.footer')
-
       </div>
     </div>
 

@@ -6,7 +6,6 @@
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
 <body>
-
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" onclick="window.history.back();">

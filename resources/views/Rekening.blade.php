@@ -38,19 +38,19 @@
 
     <div class="container">
       <div class="page-inner">
-        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-          <div class="row">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Rekening Pembayaran</h5>
-                  <hr>
-                  <div class="d-flex justify-content-between mb-2">
-                    <a href="{{ route('rekening.create') }}" class="btn btn-primary">Tambah Data</a>
-                  </div>
-                  <div class="table-responsive table-bordered">
-                    <table class="table text-nowrap align-middle mb-0 table-striped" id="dataTable">
-                      <thead>
+        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"></div>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Halaman Rekening Retribusi</h5>
+                <hr>
+                <div class="d-flex justify-content-between mb-2">
+                  <a href="{{ route('rekening.create') }}" class="btn btn-primary">Tambah Data</a>
+                </div>
+                <div class="table-responsive table-bordered">
+                  <table class="table text-nowrap align-middle mb-0 table-striped" id="dataTable">
+                  <thead>
                         <tr class="border-2 border-bottom border-primary border-0">
                           <th scope="col" class="text-center">No.</th>
                           <th scope="col" class="text-center">Jenis Bank</th>
@@ -61,6 +61,7 @@
                           @endif
                         </tr>
                       </thead>
+
                       <tbody class="table-group-divider">
                         @foreach ($rekening as $index => $data)
                           <tr>
@@ -82,18 +83,14 @@
                           </tr>
                         @endforeach
                       </tbody>
-                    </table>
-                    </div>
+                  </table>
+                  </div>
             </div>
           </div>
         </div>
+            </div>
         </div>
-        </div>
-        </div>
-
         @include('Template.footer')
-      </div>
-    </div>
 
     <!-- Core JS Files -->
     <script src="assets/js/core/jquery-3.7.1.min.js"></script>

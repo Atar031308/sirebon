@@ -75,7 +75,7 @@
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
-                  <i class="fa-solid fa-cloud"></i>
+                <i class="fa-solid fa-folder"></i>
                   <p>Laporan</p>
                   <span class="caret"></span>
                 </a>
@@ -83,12 +83,14 @@
                   <ul class="nav nav-collapse">
                     <li>
                       <a href="charts/charts.html">
-                        <span class="sub-item">Retribusi</span>
+                      <i class="fa-solid fa-marker"></i>
+                        <span>Retribusi</span>
                       </a>
                     </li>
                     <li>
                       <a href="charts/sparkline.html">
-                        <span class="sub-item">Belum Membayar Retribusi</span>
+                      <i class="fa-solid fa-square-pen"></i>
+                        <span>Belum Membayar Retribusi</span>
                       </a>
                     </li>
               @endif
@@ -133,7 +135,7 @@
                
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
-                  <i class="fa-solid fa-cloud"></i>
+                <i class="fa-solid fa-folder"></i>
                   <p>Laporan</p>
                   <span class="caret"></span>
                 </a>
@@ -141,12 +143,14 @@
                   <ul class="nav nav-collapse">
                     <li>
                       <a href="charts/charts.html">
-                        <span class="sub-item">Retribusi Pembayaran</span>
+                      <i class="fa-solid fa-square-pen"></i>
+                        <span>Retribusi Pembayaran</span>
                       </a>
                     </li>
                     <li>
                       <a href="charts/sparkline.html">
-                        <span class="sub-item">Belum Membayar Retribusi</span>
+                      <i class="fa-solid fa-marker"></i>
+                        <span>Belum Membayar Retribusi</span>
                       </a>
                     </li>
               @endif

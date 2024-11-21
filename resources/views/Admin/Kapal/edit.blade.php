@@ -95,8 +95,6 @@
                 </div>
             </div>
         </div>
-
-        @include('Template.footer')
     </div>
     </script>
 </body>

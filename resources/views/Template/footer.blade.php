@@ -1,13 +1,9 @@
 <footer class="footer">
-          <div class="container-fluid d-flex justify-content-between">
-            <nav class="pull-left">
-
-            </nav>
-            <div class="copyright">
-              <h10>2024, Sirebon. Dinas komunikasi informatika & statistik</h10>
-            </div>
-            <div>
-
-            </div>
-          </div>
+<footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>2024 &copy; SiRebon. Dinas Komunikasi, Informatika & Statistik.</span>
+                        </div>
+                    </div>
+                </footer>
         </footer>
