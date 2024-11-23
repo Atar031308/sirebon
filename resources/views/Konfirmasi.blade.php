@@ -6,15 +6,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .container {
-      margin-top: 20px; /* Kurangi jarak atas */
+      margin-top: 20px;
+      /* Kurangi jarak atas */
     }
 
     .form-group label {
-      font-weight: bold; /* Menonjolkan label */
+      font-weight: bold;
+      /* Menonjolkan label */
     }
 
     .form-control {
-      border-radius: 5px; /* Membuat input lebih modern */
+      border-radius: 5px;
+      /* Membuat input lebih modern */
     }
 
     .page-inner {
@@ -61,8 +64,6 @@
 
         <form action="{{ route('konfirmasi.confirm') }}" method="post" enctype="multipart/form-data">
           @csrf
-
-          <!-- Jenis Bank -->
           <div class="form-group">
             <label for="id_ref_bank">Jenis Bank:</label>
             <select id="id_ref_bank" name="id_ref_bank" class="form-control" required>
@@ -74,14 +75,10 @@
               @endforeach
             </select>
           </div>
-
-          <!-- Nominal Transfer -->
           <div class="form-group">
             <label for="nominal_transfer">Nominal Transfer:</label>
             <input type="number" id="nominal_transfer" name="nominal_transfer" class="form-control" required>
           </div>
-
-          <!-- Nomor Rekening -->
           <div class="form-group">
             <label for="id_ms_rekening">Nomor Rekening:</label>
             <select id="id_ms_rekening" name="id_ms_rekening" class="form-control" required>
@@ -93,14 +90,10 @@
               @endforeach
             </select>
           </div>
-
-          <!-- Bukti Pembayaran -->
           <div class="form-group">
             <label for="formFile" class="form-label">Bukti Pembayaran:</label>
             <input class="form-control" type="file" id="formFile" name="file_bukti" required>
           </div>
-
-          <!-- Tombol Submit -->
           <button type="submit" class="btn btn-primary btn-block">Kirim</button>
         </form>
       </div>
@@ -129,4 +122,9 @@
             });
         </script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+
+</html>
+>>>>>>> 59bdc5e05ef5cb0c7e921cb57c1afaccb60814f3
