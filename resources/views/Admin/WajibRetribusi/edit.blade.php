@@ -20,7 +20,7 @@
                 <div class="col">
                     <div class="card profile-card">
                         <div class="card-body">
-                            <h5 class="card-title">Ubah Rekening Pembayaran</h5>
+                            <h5 class="card-title">Ubah Wajib Retribusi</h5>
                             <hr>
                             <form action="{{ route('wajib.update', $wajibRetribusi->id) }}" method="POST">
                                 @csrf
