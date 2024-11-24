@@ -37,4 +37,27 @@ class ProfilController extends Controller
 
         return redirect()->route('Profile.index')->with('success', 'Profil berhasil diperbarui!');
 }
+
+public function updatePassword(Request $request)
+{
+    $request->validate([
+        'passwordLama' => 'required|string',
+        'passwordBaru' => 'required|string|min:8|confirmed', // 'confirmed' memeriksa passwordBaru dan passwordBaru_confirmation
+    ]);
+
+    $user = Auth::user();
+
+    // Periksa apakah password lama sesuai
+    if (!\Hash::check($request->input('passwordLama'), $user->password)) {
+        return redirect()->back()->withErrors(['passwordLama' => 'Password lama tidak sesuai.']);
+    }
+
+    // Simpan password baru
+    $user->password = \Hash::make($request->input('passwordBaru'));
+    $user->save();
+
+    return redirect()->route('Profile.index')->with('success', 'Password berhasil diubah!');
+}
+
+
 }

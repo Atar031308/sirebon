@@ -41,27 +41,15 @@
   @include('Template.sidebar')
 
   <div class="main-panel">
-    <div class="main-header">
-      <div class="main-header-logo">
-        <div class="logo-header" data-background-color="dark">
-          <a href="index.html" class="logo">
-            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
-          </a>
-          <div class="nav-toggle">
-            <button class="btn btn-toggle toggle-sidebar">
-              <i class="gg-menu-right"></i>
-            </button>
-            <button class="btn btn-toggle sidenav-toggler">
-              <i class="gg-menu-left"></i>
-            </button>
-          </div>
-          <button class="topbar-toggler more">
-            <i class="gg-more-vertical-alt"></i>
-          </button>
+        <div class="main-header">
+            <!-- Logo Header -->
+
+            <!-- End Logo Header -->
+
+            <!-- Navbar Header -->
+            @include('Template.navbar')
+            <!-- End Navbar -->
         </div>
-      </div>
-      @include('Template.navbar')
-    </div>
 
     <div class="container">
       <div class="page-inner">
@@ -112,10 +100,27 @@
     </div>
     @include('Template.footer')
   </div>
+  <script src="{{ asset('assets/js/core/jquery-3.7.1.min.js') }}"></script>
+        <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- jQuery Scrollbar -->
+        <script src="{{ asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
+
+        <!-- Chart JS -->
+        <script src="{{ asset('assets/js/plugin/chart.js/chart.min.js') }}"></script>
+
+        <!-- Datatables -->
+        <script src="{{ asset('assets/js/plugin/datatables/datatables.min.js') }}"></script>
+
+        <!-- Kaiadmin JS -->
+        <script src="{{ asset('assets/js/kaiadmin.min.js') }}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#dataTable').DataTable(); // Mengaktifkan DataTables
+            });
+        </script>
 </body>
 
 </html>

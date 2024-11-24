@@ -66,8 +66,7 @@
 
                         <body>
                             <div class="form-container">
-                                <form method="POST"
-                                    action="{{ route('Profile.update', ['Profile' => Auth::user()->id]) }}">
+                                <form method="POST" action="{{ route('Profile.update', ['Profile' => Auth::user()->id]) }}">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-row">
@@ -91,11 +90,10 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="namaLengkap">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="namaLengkap"
-                                                    name="namaLengkap" value="{{ $wajib->nama }}">
+                                                <input type="text" class="form-control" id="namaLengkap" name="namaLengkap"
+                                                    value="{{ $wajib->nama }}">
                                             </div>
                                         </div>
-
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="telepon">Telepon</label>
@@ -103,36 +101,64 @@
                                                     value="{{ $wajib->no_hp }}">
                                             </div>
                                         </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="alamat">Alamat</label>
-                                                <input type="text" class="form-control" id="alamat" name="alamat"
-                                                    value="{{ $wajib->alamat }}">
-                                            </div>
-                                        </div>
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="btn btn-primary btn-block">Simpan</button>
-
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="passwordLama">Password Lama</label>
-                                                <input type="password" class="form-control" id="passwordLama">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="passwordBaru">Password Baru</label>
-                                                <input type="password" class="form-control" id="passwordBaru">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="konfirmasiPasswordBaru">Konfirmasi Password Baru</label>
-                                                <input type="password" class="form-control" id="konfirmasiPasswordBaru">
-                                            </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="alamat">Alamat</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat"
+                                                value="{{ $wajib->alamat }}">
                                         </div>
                                     @endforeach
                                     <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                                 </form>
+                                <hr>
+
+                                
+                             <!-- Display Alert Messages -->
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+<!-- Form Update Password -->
+<form method="POST" action="{{ route('Profile.updatePassword', ['Profile' => Auth::user()->id]) }}">
+    @csrf
+    @method('PUT')
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="passwordLama">Password Lama</label>
+            <input type="password" class="form-control" id="passwordLama" name="passwordLama" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="passwordBaru">Password Baru</label>
+            <input type="password" class="form-control" id="passwordBaru" name="passwordBaru" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="konfirmasiPasswordBaru">Konfirmasi Password Baru</label>
+            <input type="password" class="form-control" id="konfirmasiPasswordBaru" name="passwordBaru_confirmation" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Ubah Password</button>
+</form>
+
+
                             </div>
 
                             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
