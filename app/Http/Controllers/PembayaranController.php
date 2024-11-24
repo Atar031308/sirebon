@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\MsRekening;
 use App\Models\RefBank;
 use App\Models\KonfirmasiBayar;
@@ -11,7 +12,8 @@ class PembayaranController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
+    public function index()
+    {
         $konfirmasi = KonfirmasiBayar::with(['user.Wajib_retribusi'])->get();
         return view('Pembayaran-retribusi', compact('konfirmasi'));
     }
@@ -62,5 +64,23 @@ class PembayaranController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $konfirmasi = KonfirmasiBayar::find($id);
+
+        if (!$konfirmasi) {
+            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        }
+
+        $request->validate([
+            'status' => 'required|in:sesuai,tidak_sesuai',
+        ]);
+
+        $konfirmasi->status = $request->status === 'sesuai' ? 'S' : 'T';
+        $konfirmasi->save();
+
+        return redirect()->back()->with('success', 'Status pembayaran berhasil diperbarui.');
     }
 }

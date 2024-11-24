@@ -95,11 +95,15 @@ Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::resource('wajib', WajibController::class);
     Route::resource('Kapal', KapalController::class);
     Route::resource('Pembayaran', PembayaranController::class);
+    Route::middleware(['web'])->group(function () {
+        Route::put('/konfirmasi/{id}/status', [PembayaranController::class, 'updateStatus'])->name('konfirmasi.updateStatus');
+    });
     Route::resource('Kapalku', KapalkuController::class);
     Route::resource('Wajib', WajibController::class);
     Route::resource('Konfirmasi', KonfirmasiController::class);
     Route::post('/konfirmasi/confirm', [KonfirmasiController::class, 'confirm'])->name('konfirmasi.confirm');
-    Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('Konfirmasi.index');
+    Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi.index');
     Route::resource('Profile', ProfilController::class);
-     
+    
 });
+

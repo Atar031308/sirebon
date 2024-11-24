@@ -9,11 +9,13 @@ use App\Models\RefBank;
 
 class KonfirmasiController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $banks = RefBank::all();
         $msRekenings = MsRekening::all();
-        return view('Konfirmasi', compact('banks','msRekenings'));
-    } 
+        $konfirmasi = KonfirmasiBayar::all(); // Tambahkan ini untuk mengambil data pembayaran
+        return view('Konfirmasi', compact('banks', 'msRekenings', 'konfirmasi'));
+    }
 
     public function confirm(Request $request)
     {
@@ -42,16 +44,15 @@ class KonfirmasiController extends Controller
         $konfirmasiBayar->nama_pemilik_rekening = $msRekening->nama_akun;
         $konfirmasiBayar->id_ref_bank = $request->id_ref_bank;
         $konfirmasiBayar->no_rekening_pemilik = $msRekening->no_rekening;
-        $konfirmasiBayar->status = 'P';
+        $konfirmasiBayar->status = 'P'; // 'P' untuk status "Pending"
         $konfirmasiBayar->save();
 
         return redirect()->route('Konfirmasi.index')->with('success', 'Terima kasih telah membayar retribusi. Mohon tunggu konfirmasi dari admin.');
     }
 
     public function create()
-{
-    // Logic untuk menampilkan halaman form pembuatan data
-    return view('Admin.konfirmasi.create'); // Ganti dengan view Anda
-}
-
+    {
+        // Logic untuk menampilkan halaman form pembuatan data
+        return view('Admin.konfirmasi.create'); // Ganti dengan view Anda
+    }
 }
