@@ -30,5 +30,13 @@ class UserSeeder extends Seeder
             'password' => bcrypt('karyawan123'),
             'remember_token' => Str::random(60),
         ]);
+
+        User::create([
+            'name' => 'superadmin',
+            'level' => 'superadmin',
+            'email' => 'superadmin@gmail.com',
+            'password' => bcrypt('123'),
+            'remember_token' => Str::random(60),
+        ]);
     }
 }

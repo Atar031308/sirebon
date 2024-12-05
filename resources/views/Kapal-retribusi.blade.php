@@ -53,21 +53,42 @@
                   <thead>
                     <tr class="border-2 border-bottom border-primary border-0">
                       <th scope="col" class="text-center">No.</th>
+                      @if (auth()->user()->level == "admin")
                       <th scope="col" class="text-center">Nama Pemilik</th>
+                      @endif
+                      @if (auth()->user()->level == "karyawan")
                       <th scope="col" class="text-center">Nama Kapal</th>
+                      <th scope="col" class="text-center">Nilai Retribusi</th>
+                      <th scope="col" class="text-center">Tanggal Bayar</th>
+                      @endif
+                      @if (auth()->user()->level == "admin")
                       <th scope="col" class="text-center">Jenis Kapal</th>
                       <th scope="col" class="text-center">Ukuran</th>
                       <th scope="col" class="text-center">Aksi</th>
+                      @endif
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
                     @foreach ($kapal as $index => $data)
             <tr>
               <td>{{ $index + 1 }}</td>
+              @if (auth()->user()->level == "admin")
               <td>{{ $data->nama_pemilik }}</td>
+              @endif
+              @if (auth()->user()->level == "karyawan")
+              <td>{{ $data->nama_kapal }}</td>
+               <td>Rp
+               {{ number_format($data->jenisKapal->biaya_retribusi, 0, ',', '.') ?? 'Tidak ada biaya' }}
+                <td>{{ $data->created_at->format('d F Y') }}</td>
+              <td>{{ $data->tgl_bayar }}</td>
+              @endif
+              @if (auth()->user()->level == "admin")
               <td>{{ $data->nama_kapal }}</td>
               <td>{{ $data->jenisKapal->jenis_kapal }}</td>
               <td>{{ $data->ukuran }}</td>
+              @endif
+
+              @if (auth()->user()->level == "admin")
               <td class="text-center">
               <a href="{{ route('Kapal.edit', $data->id) }}" class="btn btn-primary btn-sm m-1">Ubah</a>
               <form action="{{ route('Kapal.destroy', $data->id) }}" method="POST" style="display:inline;">
@@ -77,6 +98,7 @@
                 onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
               </form>
               </td>
+              @endif
             </tr>
 
             </form>

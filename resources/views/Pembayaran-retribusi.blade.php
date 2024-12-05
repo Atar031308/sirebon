@@ -66,47 +66,47 @@
                                     </thead>
                                     <tbody>
                                         @if ($konfirmasi->isEmpty())
-                                            <tr>
-                                                <td colspan="7" class="text-center">Tidak ada data tersedia.</td>
-                                            </tr>
+                                        <tr>
+                                            <td colspan="7" class="text-center">Tidak ada data tersedia.</td>
+                                        </tr>
                                         @else
-                                            @foreach ($konfirmasi as $index => $data)
-                                                <tr>
-                                                    <td class="text-center">{{ $index + 1 }}</td>
-                                                   
-                                                    <td>{{ $data->msRekening->nama_akun }}</td>
-                                                    <td>{{ $data->msRekening->no_rekening }}</td>
-                                                    <td class="text-center">
-                                                        @if ($data->file_bukti)
-                                                            <img src="{{ asset('storage/' . $data->file_bukti) }}"
-                                                                class="rounded img-fluid" style="max-width: 80px;">
-                                                        @else
-                                                            <span>No Image Available</span>
-                                                        @endif
-                                                    </td>
-                                                    <td class="text-nowrap">
-                                                        {{ $data->tgl_bayar ? \Carbon\Carbon::parse($data->tgl_bayar)->format('d M Y') : '-' }}
-                                                    </td>
-
-                                                    <td>{{ $data->tanggal_tidak_bayar }}</td>
-                                                    <td class="text-center">
-                                                        <form action="#" method="POST"
-                                                            class="d-flex justify-content-start">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit" name="status" value="sesuai"
-                                                                class="btn btn-success btn-sm mr-2">Sesuai</button>
-                                                            <button type="submit" name="status" value="tidak_sesuai"
-                                                                class="btn btn-danger btn-sm">Tidak Sesuai</button>
-                                                        </form>
-
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                        @foreach ($konfirmasi as $index => $data)
+                                        <tr>
+                                            <td class="text-center">{{ $index + 1 }}</td>
+                                            <td>{{ $data->msRekening->nama_akun }}</td>
+                                            <td>{{ $data->msRekening->no_rekening }}</td>
+                                            <td class="text-center">
+                                                @if ($data->file_bukti)
+                                                <img src="{{ asset('storage/' . $data->file_bukti) }}" class="rounded img-fluid" style="max-width: 80px;">
+                                                @else
+                                                <span>No Image Available</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-nowrap">
+                                                {{ $data->tgl_bayar ? \Carbon\Carbon::parse($data->tgl_bayar)->format('d M Y') : '-' }}
+                                            </td>
+                                            <td>{{ $data->tanggal_tidak_bayar }}</td>
+                                            <td class="text-center">
+                                                @if ($data->status === 'S')
+                                                <span class="badge badge-success">Sesuai</span>
+                                                @elseif ($data->status === 'T')
+                                                <span class="badge badge-danger">Tidak Sesuai</span>
+                                                @else
+                                                <form action="{{ route('konfirmasi.updateStatus', $data->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" name="status" value="sesuai" class="btn btn-success btn-sm mr-2">Sesuai</button>
+                                                    <button type="submit" name="status" value="tidak_sesuai" class="btn btn-danger btn-sm">Tidak Sesuai</button>
+                                                </form>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                         @endif
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                     </div>
                 </div>

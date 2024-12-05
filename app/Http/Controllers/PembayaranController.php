@@ -63,4 +63,21 @@ class PembayaranController extends Controller
     {
         //
     }
+    public function updateStatus(Request $request, $id)
+    {
+        $konfirmasi = KonfirmasiBayar::find($id);
+
+        if (!$konfirmasi) {
+            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        }
+
+        $request->validate([
+            'status' => 'required|in:sesuai,tidak_sesuai',
+        ]);
+
+        $konfirmasi->status = $request->status === 'sesuai' ? 'S' : 'T';
+        $konfirmasi->save();
+
+        return redirect()->back()->with('success', 'Status pembayaran berhasil diperbarui.');
+    }
 }

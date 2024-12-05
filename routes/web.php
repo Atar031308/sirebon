@@ -12,6 +12,7 @@ use App\Http\Controllers\KapalkuController;
 use App\Http\Controllers\WajibController;
 use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SuperAdminController;
 
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
@@ -88,13 +89,16 @@ Route::get('/login', [LoginController::class,'halamanLogin'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
+Route::group(['middleware' => ['auth','ceklevel:karyawan,admin,superadmin']], function () {
     Route::resource('home', HomeController::class);
     Route::resource('rekening', RekeningController::class);
     Route::resource('kategori', KategoriRetribusiController::class);
     Route::resource('wajib', WajibController::class);
     Route::resource('Kapal', KapalController::class);
     Route::resource('Pembayaran', PembayaranController::class);
+    Route::middleware(['web'])->group(function () {
+        Route::put('/konfirmasi/{id}/status', [PembayaranController::class, 'updateStatus'])->name('konfirmasi.updateStatus');
+    });
     Route::resource('Kapalku', KapalkuController::class);
     Route::resource('Wajib', WajibController::class);
     Route::resource('Konfirmasi', KonfirmasiController::class);
@@ -102,5 +106,5 @@ Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi.index');
     Route::resource('Profile', ProfilController::class);
     Route::put('/profile/update-password', [ProfilController::class, 'updatePassword'])->name('Profile.updatePassword');
-
+    Route::resource('superadmin', SuperAdminController::class);
 });
