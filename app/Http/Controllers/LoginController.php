@@ -11,25 +11,23 @@ class LoginController extends Controller
         return view('Login.Login-aplikasi');
     }
     
-    public function postlogin(Request $request){
-        if (Auth::attempt($request->only('email', 'password'))) {
-            // Cek peran pengguna
-            $user = Auth::user(); // Mendapatkan data pengguna yang sedang login
-            
-            if ($user->role == 'admin') { // Asumsikan ada field 'role' di tabel users
-                return redirect('/home'); // Redirect ke halaman home untuk admin
-            } elseif ($user->role == 'karyawan') {
-                return redirect('/Profile'); // Redirect ke halaman profile untuk karyawan
+    public function postlogin(Request $request)
+    {
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            if ($user->level === 'Admin Aplikasi') {
+                return redirect()->route('home.index')->with('success', 'Selamat datang, Admin!');
+            } elseif ($user->level === 'Wajib Retribusi') {
+                return redirect()->route('profil.index')->with('success', 'Selamat datang di halaman profil Anda!');
             }
-            
-            // Redirect default jika role tidak dikenali
-            return redirect('/default-page');
         }
-    
-        // Redirect jika login gagal
-        return redirect('/')->with('error', 'Email atau password salah!');
-    }
-    
+
+        return redirect()->back()->with('error', 'Username atau password salah!');
+    }   
+     
     public function logout (Request $request){
         Auth::logout();
         return redirect('/');
