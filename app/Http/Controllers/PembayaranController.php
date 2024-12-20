@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\MsRekening;
 use App\Models\RefBank;
 use App\Models\KonfirmasiBayar;
@@ -11,7 +12,8 @@ class PembayaranController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
+    public function index()
+    {
         $konfirmasi = KonfirmasiBayar::with(['user.Wajib_retribusi'])->get();
         return view('Pembayaran-retribusi', compact('konfirmasi'));
     }

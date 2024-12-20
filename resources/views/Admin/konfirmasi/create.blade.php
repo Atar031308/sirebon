@@ -40,7 +40,11 @@
                                     <label class="col-sm-3 col-form-label">Rekening</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="rekening" class="form-control">
+<<<<<<< HEAD
+                                        @error('rekening')
+=======
                                         @error($rekening)
+>>>>>>> 1a94b463fb51aefb5b0ab218ee740ca337437188
                                             <div class="text-danger">{{message}}</div>
                                         @enderror
                                     </div>

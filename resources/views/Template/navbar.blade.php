@@ -39,7 +39,7 @@
                     <span class="fw-bold">{{ auth()->user()->username }}</span>
                   </span>
                   <p class="text-muted"></p>
-                  @if (auth()->user()->level == "karyawan")
+                  @if (auth()->user()->level == "wajib_retribusi")
                   <a href="{{ route('Profile.index') }}" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                   @endif
                 </div>

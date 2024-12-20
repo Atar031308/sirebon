@@ -43,7 +43,7 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Halaman Wajib Retribusi</h5>
+              <h5 class="card-title">Halaman Kapal Wajib Retribusi</h5>
               <hr>
               <div class="d-flex justify-content-between mb-2">
                 <a href="{{ route('wajib.create') }}" class="btn btn-primary">Tambah Data</a>

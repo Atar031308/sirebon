@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function halamanLogin(){
+    // Menampilkan halaman login
+    public function halamanLogin()
+    {
         return view('Login.Login-aplikasi');
     }
 
+    // Proses login
     public function postlogin(Request $request)
     {
         // Ambil hanya username dan password dari input
@@ -18,6 +21,7 @@ class LoginController extends Controller
     
         // Cek kredensial menggunakan Auth::attempt(), ini sudah memverifikasi password dengan bcrypt
         if (Auth::attempt($credentials)) {
+            // Ambil data pengguna yang sedang login
             $user = Auth::user();
     
             // Mengecek level pengguna setelah berhasil login
@@ -39,6 +43,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('success', 'Anda telah berhasil logout.');
     }
 }
+

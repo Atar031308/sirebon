@@ -92,7 +92,7 @@
 
 
 
-            @if (auth()->user()->level == "karyawan")
+            @if (auth()->user()->level == "wajib_retribusi")
             <li class="nav-item {{ request()->routeIs('kategori.index') ? 'active' : '' }}">
           <a href="{{ route('kategori.index') }}">
             <i class="fa-solid fa-circle-exclamation"></i>
@@ -100,7 +100,7 @@
           </a>
         </li>
 
-              @if (auth()->user()->level == "karyawan")
+              @if (auth()->user()->level == "wajib_retribusi")
               <li class="nav-item {{ request()->routeIs('Kapalku.index') ? 'active' : '' }}">
           <a href="{{ route('Kapalku.index') }}">
             <i class="fa-solid fa-ship"></i>
@@ -109,7 +109,7 @@
         </li>
         @endif
           
-              @if (auth()->user()->level == "karyawan")
+              @if (auth()->user()->level == "wajib_retribusi")
               <li class="nav-item {{ request()->routeIs('Kapal.index') ? 'active' : '' }}">
           <a href="{{ route('Kapal.index') }}">
             <i class="fa-solid fa-pen-clip"></i>
@@ -118,7 +118,7 @@
         </li>
          @endif
               
-              @if (auth()->user()->level == "karyawan")
+              @if (auth()->user()->level == "wajib_retribusi")
               <li class="nav-item {{ request()->routeIs('Konfirmasi.index') ? 'active' : '' }}">
           <a href="{{ route('Konfirmasi.index') }}">
             <i class="fa-solid fa-coins"></i>

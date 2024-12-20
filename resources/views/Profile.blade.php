@@ -8,16 +8,16 @@
 
 <body>
     @include('Template.sidebar')
-    <!-- End Sidebar -->
 
+    <!-- Main Panel -->
     <div class="main-panel">
+        <!-- Header -->
         <div class="main-header">
             <div class="main-header-logo">
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
                     <a href="index.html" class="logo">
-                        <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
-                            height="20" />
+                        <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
                     </a>
                     <div class="nav-toggle">
                         <button class="btn btn-toggle toggle-sidebar">
@@ -33,17 +33,16 @@
                 </div>
                 <!-- End Logo Header -->
             </div>
-            <!-- Navbar Header -->
             @include('Template.navbar')
-            <!-- End Navbar -->
         </div>
+        <!-- End Header -->
 
+        <!-- Content -->
         <div class="container">
             <div class="page-inner">
-                <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-                </div>
-                @if (auth()->user()->level == 'karyawan')
+                @if (auth()->user()->level == 'wajib_retribusi')
                     <div class="row">
+                        <!-- Styles for Form -->
                         <style>
                             .form-container {
                                 max-width: 600px;
@@ -62,159 +61,123 @@
                                 background-color: #e2edf7;
                             }
                         </style>
-                        </head>
 
-                        <body>
-                            <div class="form-container">
-                                <form method="POST" action="{{ route('Profile.update', ['Profile' => Auth::user()->id]) }}">
-                                    @csrf
-                                    @method('PUT')
+                        <!-- Form Container -->
+                        <div class="form-container">
+                            <!-- Update Profile Form -->
+                            <form method="POST" action="{{ route('Profile.update', ['Profile' => Auth::user()->id]) }}">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username"
+                                            value="{{ auth()->user()->name }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="hakAkses">Hak Akses</label>
+                                        <input type="text" class="form-control" id="hakAkses" name="hakAkses"
+                                            value="{{ auth()->user()->level }}" readonly>
+                                    </div>
+                                </div>
+                                @foreach (auth()->user()->Wajib_retribusi as $wajib)
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username"
-                                                value="{{ auth()->user()->name }}">
+                                            <label for="nik">NIK</label>
+                                            <input type="text" class="form-control" id="nik" name="nik"
+                                                value="{{ $wajib->nik }}">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="hakAkses">Hak Akses</label>
-                                            <input type="text" class="form-control" id="hakAkses" name="hakAkses"
-                                                value="{{ auth()->user()->level }}" readonly>
+                                            <label for="namaLengkap">Nama Lengkap</label>
+                                            <input type="text" class="form-control" id="namaLengkap" name="namaLengkap"
+                                                value="{{ $wajib->nama }}">
                                         </div>
                                     </div>
-                                    @foreach (auth()->user()->Wajib_retribusi as $wajib)
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="nik">NIK</label>
-                                                <input type="text" class="form-control" id="nik" name="nik"
-                                                    value="{{ $wajib->nik }}">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="namaLengkap">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="namaLengkap" name="namaLengkap"
-                                                    value="{{ $wajib->nama }}">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="telepon">Telepon</label>
-                                                <input type="text" class="form-control" id="telepon" name="telepon"
-                                                    value="{{ $wajib->no_hp }}">
-                                            </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="telepon">Telepon</label>
+                                            <input type="text" class="form-control" id="telepon" name="telepon"
+                                                value="{{ $wajib->no_hp }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="alamat">Alamat</label>
                                             <input type="text" class="form-control" id="alamat" name="alamat"
                                                 value="{{ $wajib->alamat }}">
                                         </div>
-                                    @endforeach
-                                    <button type="submit" class="btn btn-primary btn-block">Simpan</button>
-                                </form>
-                                <hr>
+                                    </div>
+                                @endforeach
+                                <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+                            </form>
+                            <hr>
 
-                                
-                             <!-- Display Alert Messages -->
-@if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
+                            <!-- Alert Messages -->
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
 
-@if ($errors->any())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <ul class="mb-0">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
 
-<!-- Form Update Password -->
-<form method="POST" action="{{ route('Profile.updatePassword', ['Profile' => Auth::user()->id]) }}">
-    @csrf
-    @method('PUT')
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="passwordLama">Password Lama</label>
-            <input type="password" class="form-control" id="passwordLama" name="passwordLama" required>
+                            <!-- Update Password Form -->
+                            <form method="POST" action="{{ route('Profile.updatePassword', ['Profile' => Auth::user()->id]) }}">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="passwordLama">Password Lama</label>
+                                        <input type="password" class="form-control" id="passwordLama" name="passwordLama" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="passwordBaru">Password Baru</label>
+                                        <input type="password" class="form-control" id="passwordBaru" name="passwordBaru" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="konfirmasiPasswordBaru">Konfirmasi Password Baru</label>
+                                        <input type="password" class="form-control" id="konfirmasiPasswordBaru" name="passwordBaru_confirmation" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Ubah Password</button>
+                            </form>
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            <label for="passwordBaru">Password Baru</label>
-            <input type="password" class="form-control" id="passwordBaru" name="passwordBaru" required>
-        </div>
+        <!-- End Content -->
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="konfirmasiPasswordBaru">Konfirmasi Password Baru</label>
-            <input type="password" class="form-control" id="konfirmasiPasswordBaru" name="passwordBaru_confirmation" required>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Ubah Password</button>
-</form>
 
+    @include('Template.footer')
 
-                            </div>
-
-                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-                        </body>
-                        @endif
-
-
-
-</div>
-</div>
-</div>
-
-@include('Template.footer')
-
-<!-- Custom template | don't include it in your project! -->
-
-<!-- End Custom template -->
-</div>
-<!--   Core JS Files   -->
-<script src="assets/js/core/jquery-3.7.1.min.js"></script>
-<script src="assets/js/core/popper.min.js"></script>
-<script src="assets/js/core/bootstrap.min.js"></script>
-
-<!-- jQuery Scrollbar -->
-<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-<!-- Chart JS -->
-<script src="assets/js/plugin/chart.js/chart.min.js"></script>
-
-<!-- jQuery Sparkline -->
-<script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-<!-- Chart Circle -->
-<script src="assets/js/plugin/chart-circle/circles.min.js"></script>
-
-<!-- Datatables -->
-<script src="assets/js/plugin/datatables/datatables.min.js"></script>
-
-<!-- Bootstrap Notify -->
-
-
-<!-- jQuery Vector Maps -->
-<script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-<script src="assets/js/plugin/jsvectormap/world.js"></script>
-
-<!-- Sweet Alert -->
-<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-
-<!-- Kaiadmin JS -->
-<script src="assets/js/kaiadmin.min.js"></script>
-
-<!-- Kaiadmin DEMO methods, don't include it in your project! -->
-<script src="assets/js/setting-demo.js"></script>
-<script src="assets/js/demo.js"></script>
-
+    <!-- Scripts -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/js/kaiadmin.min.js"></script>
+    <script src="assets/js/setting-demo.js"></script>
+    <script src="assets/js/demo.js"></script>
 </body>
 
 </html>
