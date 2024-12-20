@@ -48,7 +48,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function wajibRetribusi()
+    public function wajib_retribusi()
     {
         return $this->hasMany(Wajib_retribusi::class, 'id_user', 'id');
     }
