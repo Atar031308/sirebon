@@ -6,7 +6,7 @@
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
               <img
-                src="assets/img/kaiadmin/kapalku2.png"
+                src="assets/img/kaiadmin/kapalku4.png"
                 height="80px" 
                 alt="navbar brand"
                 class="navbar-brand"

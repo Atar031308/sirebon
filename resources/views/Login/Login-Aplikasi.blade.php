@@ -12,7 +12,7 @@
     <form action="{{ route('postlogin') }}" method="post">
         @csrf
         <div class="form">
-            <img class="logo" src="assets/img/kaiadmin/sirepal.png">
+            <img class="logo" src="assets/img/kaiadmin/kapalku4.png">
             <div class="title txlogin">Login Sirepal</div>
 
             <!-- Pesan error global -->
@@ -27,12 +27,12 @@
             @endif
 
             <div class="input-container ic1">
-                <input id="email" class="input" name="email" type="email" placeholder=" " value="{{ old('email') }}" />
+                <input id="username" class="input" name="username" type="username" placeholder=" " value="{{ old('username') }}" />
                 <div class="cut"></div>
-                <label for="email" class="placeholder">Email</label>
+                <label for="username" class="placeholder">Username</label>
 
                 <!-- Menampilkan error spesifik untuk email -->
-                @error('email')
+                @error('username')
                     <div class="error-text">{{ $message }}</div>
                 @enderror
             </div>

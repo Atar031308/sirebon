@@ -23,7 +23,7 @@
           </div>
           <span class="profile-username">
             <span class="op-7">Hi,</span>
-            <span class="fw-bold">{{ auth()->user()->name }}</span>
+            <span class="fw-bold">{{ auth()->user()->username }}</span>
           </span>
         </a>
         <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -36,7 +36,7 @@
                 <div class="u-text">
                   <span class="profile-username">
                     <span class="op-7"></span>
-                    <span class="fw-bold">{{ auth()->user()->name }}</span>
+                    <span class="fw-bold">{{ auth()->user()->username }}</span>
                   </span>
                   <p class="text-muted"></p>
                   @if (auth()->user()->level == "karyawan")

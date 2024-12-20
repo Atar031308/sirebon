@@ -9,32 +9,25 @@ use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        \App\Models\User::query()->delete();
         User::create([
-            'name' => 'Admin',
+            'username' => 'admin',
             'level' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345'),
+            'password' => bcrypt('12345'),  // Gunakan bcrypt untuk mengenkripsi password
             'remember_token' => Str::random(60),
         ]);
 
         User::create([
-            'name' => 'karyawan',
-            'level' => 'karyawan',
-            'email' => 'karyawan@gmail.com',
-            'password' => bcrypt('karyawan123'),
+            'username' => 'wajib_retribusi',
+            'level' => 'wajib_retribusi',
+            'password' => bcrypt('wajib_retribusi123'),
             'remember_token' => Str::random(60),
         ]);
 
         User::create([
-            'name' => 'superadmin',
+            'username' => 'superadmin',
             'level' => 'superadmin',
-            'email' => 'superadmin@gmail.com',
             'password' => bcrypt('123'),
             'remember_token' => Str::random(60),
         ]);

@@ -12,19 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ms_rekening', function (Blueprint $table) {
-            $table->string('no_rekening')->unique()->change();
-
+            // Hapus jika sudah ada indeks dengan nama yang sama
+            $table->dropUnique('ms_rekening_no_rekening_unique');  // Hapus jika sudah ada
+        
+            // Tambahkan unique constraint
+            $table->unique('no_rekening', 'ms_rekening_no_rekening_unique');
         });
         
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::table('ms_rekening', function (Blueprint $table) {
-            //
-        });
     }
 };
