@@ -15,9 +15,15 @@ class Ceklevel
      */
     public function handle(Request $request, Closure $next, ...$levels): Response
     {
-        if(in_array($request->user()->level,$levels)){
-            return $next($request);
+        // Mengambil pengguna yang sedang login
+        $user = auth()->user();
+
+        // Pastikan pengguna ada sebelum mengecek levelnya
+        if (!$user || !in_array($user->level, $levels)) {
+            return redirect('/')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
         }
-        return redirect('/');
+
+        // Melanjutkan request
+        return $next($request);
     }
 }

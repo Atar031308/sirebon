@@ -12,6 +12,7 @@ use App\Http\Controllers\KapalkuController;
 use App\Http\Controllers\WajibController;
 use App\Http\Controllers\KonfirmasiController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SuperAdminController;
 
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
@@ -19,20 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/forgot-password', function () {
-    return view('auth.forgot-password');
-})->middleware('guest')->name('password.request');
 
 Route::post('/forgot-password', function (Request $request) {
     $request->validate(['email' => 'required|email']);
@@ -40,13 +28,12 @@ Route::post('/forgot-password', function (Request $request) {
     try {
         $status = Password::sendResetLink($request->only('email'));
 
-    } catch (\Exception $e) {
-        return back()->withErrors(['email' => 'Error: ' . $e->getMessage()]);
-    }
-
-    return $status === Password::RESET_LINK_SENT
+        return $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);
+    } catch (\Exception $e) {
+        return back()->withErrors(['email' => 'Terjadi kesalahan: ' . $e->getMessage()]);
+    }
 })->middleware('guest')->name('password.email');
 
 
@@ -88,7 +75,7 @@ Route::get('/login', [LoginController::class,'halamanLogin'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:admin,wajib_retribusi,superadmin']], function () {
     Route::resource('home', HomeController::class);
     Route::resource('rekening', RekeningController::class);
     Route::resource('kategori', KategoriRetribusiController::class);
@@ -105,5 +92,5 @@ Route::group(['middleware' => ['auth','ceklevel:karyawan,admin']], function () {
     Route::get('/konfirmasi', [KonfirmasiController::class, 'index'])->name('konfirmasi.index');
     Route::resource('Profile', ProfilController::class);
     Route::put('/profile/update-password', [ProfilController::class, 'updatePassword'])->name('Profile.updatePassword');
-
+    Route::resource('superadmin', SuperAdminController::class);
 });

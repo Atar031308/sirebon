@@ -65,7 +65,6 @@ class PembayaranController extends Controller
     {
         //
     }
-
     public function updateStatus(Request $request, $id)
     {
         $konfirmasi = KonfirmasiBayar::find($id);

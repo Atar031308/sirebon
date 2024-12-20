@@ -31,42 +31,42 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
             @if (auth()->user()->level == "admin")
-            <li class="nav-item">
-                <a href="{{ route('home.index') }}">
-                  <i class="fas fa-home"></i>
-                  <p>Beranda</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('rekening.index') }}">
-                  <i class="fas fa-wallet"></i>
-                  <p>Rekening Pembayaran</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('kategori.index') }}">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                  <p>Kategori retribusi</p>
-                </a>
-              </li>            
-              <li class="nav-item">
-                <a href="{{ route('wajib.index') }}">
-                <i class="fa-solid fa-anchor"></i>
-                  <p>Wajib retribusi</p>
-                </a>
-              </li>            
-              <li class="nav-item">
-                <a href="{{ route('Kapal.index') }}">
-                <i class="fa-solid fa-sailboat"></i>
-                  <p>Kapal Wajib Retribusi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('Pembayaran.index') }}">
-                <i class="fa-solid fa-money-bill"></i>
-                  <p>Pembayaran retribusi</p>
-                </a>
-              </li>
+            <li class="nav-item {{ request()->routeIs('home.index') ? 'active' : '' }}">
+          <a href="{{ route('home.index') }}">
+            <i class="fas fa-home"></i>
+            <p>Beranda</p>
+          </a>
+        </li>
+              <li class="nav-item {{ request()->routeIs('rekening.index') ? 'active' : '' }}">
+          <a href="{{ route('rekening.index') }}">
+            <i class="fas fa-wallet"></i>
+            <p>Rekening Pembayaran</p>
+          </a>
+        </li> 
+              <li class="nav-item {{ request()->routeIs('kategori.index') ? 'active' : '' }}">
+          <a href="{{ route('kategori.index') }}">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p>Kategori retribusi</p>
+          </a>
+        </li>    
+             <li class="nav-item {{ request()->routeIs('wajib.index') ? 'active' : '' }}">
+          <a href="{{ route('wajib.index') }}">
+            <i class="fa-solid fa-anchor"></i>
+            <p>Wajib retribusi</p>
+          </a>
+        </li>      
+            <li class="nav-item {{ request()->routeIs('Kapal.index') ? 'active' : '' }}">
+          <a href="{{ route('Kapal.index') }}">
+            <i class="fa-solid fa-sailboat"></i>
+            <p>Kapal Wajib Retribusi</p>
+          </a>
+        </li>
+        <li class="nav-item {{ request()->routeIs('Pembayaran.index') ? 'active' : '' }}">
+          <a href="{{ route('Pembayaran.index') }}">
+            <i class="fa-solid fa-money-bill"></i>
+            <p>Pembayaran retribusi</p>
+          </a>
+        </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
                 <i class="fa-solid fa-folder"></i>
@@ -92,40 +92,40 @@
 
 
 
-            @if (auth()->user()->level == "karyawan")
-            <li class="nav-item">
-                <a href="{{ route('kategori.index') }}">
-                   <i class="fa-solid fa-circle-exclamation"></i>
-                  <p>Kategori retribusi</p>
-                </a>
-              </li>
+            @if (auth()->user()->level == "wajib_retribusi")
+            <li class="nav-item {{ request()->routeIs('kategori.index') ? 'active' : '' }}">
+          <a href="{{ route('kategori.index') }}">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p>Kategori retribusi</p>
+          </a>
+        </li>
 
-              @if (auth()->user()->level == "karyawan")
-              <li class="nav-item">
-              <a href="{{ route('Kapalku.index') }}">
-                <i class="fa-solid fa-ship"></i>
-                  <p>Kapalku</p>
-                </a>
-              </li>
-              @endif
+              @if (auth()->user()->level == "wajib_retribusi")
+              <li class="nav-item {{ request()->routeIs('Kapalku.index') ? 'active' : '' }}">
+          <a href="{{ route('Kapalku.index') }}">
+            <i class="fa-solid fa-ship"></i>
+            <p>Kapalku</p>
+          </a>
+        </li>
+        @endif
           
-              @if (auth()->user()->level == "karyawan")
-              <li class="nav-item">
-              <a href="{{ route('Wajib.index') }}">
-                <i class="fa-solid fa-pen-clip"></i>
-                  <p>Kapal Wajib Retribusi</p>
-                </a>
-              </li>
-                @endif
+              @if (auth()->user()->level == "wajib_retribusi")
+              <li class="nav-item {{ request()->routeIs('Kapal.index') ? 'active' : '' }}">
+          <a href="{{ route('Kapal.index') }}">
+            <i class="fa-solid fa-pen-clip"></i>
+            <p>Kapal Wajib Retribusi</p>
+          </a>
+        </li>
+         @endif
               
-              @if (auth()->user()->level == "karyawan")
-              <li class="nav-item">
-              <a href="{{ route('Konfirmasi.index') }}">
-                <i class="fa-solid fa-coins"></i>
-                  <p>Konfirmasi Pembayaran</p>
-                </a>
-              </li>
-                @endif
+              @if (auth()->user()->level == "wajib_retribusi")
+              <li class="nav-item {{ request()->routeIs('Konfirmasi.index') ? 'active' : '' }}">
+          <a href="{{ route('Konfirmasi.index') }}">
+            <i class="fa-solid fa-coins"></i>
+            <p>Konfirmasi Pembayaran</p>
+          </a>
+        </li>
+         @endif
                
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">

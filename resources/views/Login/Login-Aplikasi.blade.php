@@ -10,26 +10,50 @@
 </head>
 <body>
     <form action="{{ route('postlogin') }}" method="post">
-    @csrf
-    <div class="form">
-        <img class="logo" src="assets/img/kaiadmin/kapalku.png">
-        <div class="title txlogin">Login Sirebon</div>
-        <div class="input-container ic1">
-            <input id="firstname" class="input" name="email" type="email" placeholder=" " />
-            <div class="cut"></div>
-            <label for="firstname" class="placeholder">Email</label>
+        @csrf
+        <div class="form">
+            <img class="logo" src="assets/img/kaiadmin/sirepal.png">
+            <div class="title txlogin">Login Sirepal</div>
+
+            <!-- Pesan error global -->
+            @if ($errors->any())
+                <div class="error-message">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="input-container ic1">
+                <input id="email" class="input" name="email" type="email" placeholder=" " value="{{ old('email') }}" />
+                <div class="cut"></div>
+                <label for="email" class="placeholder">Email</label>
+
+                <!-- Menampilkan error spesifik untuk email -->
+                @error('email')
+                    <div class="error-text">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="input-container ic2" style="position: relative;">
+                <input id="password" class="input" name="password" type="password" placeholder=" " />
+                <i class="fa fa-eye toggle-password" 
+                   style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
+                <div class="cut"></div>
+                <label for="password" class="placeholder">Password</label>
+
+                <!-- Menampilkan error spesifik untuk password -->
+                @error('password')
+                    <div class="error-text">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <button type="submit" class="submit">Login</button>
+            <a>Apakah anda ingin</a>
+            <a href="forgot-password">merubah sandi</a>
         </div>
-        <div class="input-container ic2" style="position: relative;"> <!-- Tambahkan posisi relatif -->
-            <input id="password" class="input" name="password" type="password" placeholder=" " />
-            <i class="fa fa-eye toggle-password" 
-               style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
-            <div class="cut"></div>
-            <label for="password" class="placeholder">Password</label>
-        </div>
-        <button type="submit" class="submit">Login</button>
-        <a>Apakah anda ingin</a>
-        <a href="forgot-password">merubah sandi</a>
-    </div>
     </form>
 
     <script>
@@ -41,7 +65,8 @@
                 passwordField.attr("type", type);
 
                 // Toggle eye icon
-                $(this).toggleClass("fa-eye fa-eye-slash");
+                $(this).toggleClass("fa-eye");
+                $(this).toggleClass("fa-eye-slash");
             });
         });
     </script>

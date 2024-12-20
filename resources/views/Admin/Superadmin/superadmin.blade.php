@@ -33,7 +33,6 @@
       </div>
       <!-- Navbar Header -->
       @include('Template.navbar')
-
       <!-- End Navbar -->
     </div>
 
@@ -44,43 +43,39 @@
           <div class="col">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Halaman Rekening Retribusi</h5>
+                <h5 class="card-title">Halaman SuperAdmin</h5>
                 <hr>
                 <div class="d-flex justify-content-between mb-2">
-                  <a href="{{ route('rekening.create') }}" class="btn btn-primary">Tambah Data</a>
+                  <a href="" class="btn btn-primary">Tambah Data</a>
                 </div>
                 <div class="table-responsive table-bordered">
                   <table class="table text-nowrap align-middle mb-0 table-striped" id="dataTable">
                   <thead>
                         <tr class="border-2 border-bottom border-primary border-0">
                           <th scope="col" class="text-center">No.</th>
-                          <th scope="col" class="text-center">Jenis Bank</th>
-                          <th scope="col" class="text-center">Nama Pemilik</th>
-                          <th scope="col" class="text-center">Nomor Rekening</th>
-                          @if (auth()->user()->level == "admin")
-                            <th scope="col" class="text-center">Aksi</th>
-                          @endif
+                          <th scope="col" class="text-center">Username</th>
+                          <th scope="col" class="text-center">Level</th>
+                          <th scope="col" class="text-center">Email</th>
+                          <th scope="col" class="text-center">Aksi</th>
                         </tr>
                       </thead>
 
                       <tbody class="table-group-divider">
-                        @foreach ($rekening as $index => $data)
+                        @foreach ($users as $index => $user)
                           <tr>
-                            <td scope="col" class="text-center">{{ $index + 1 }}</td>
-                            <td scope="col" class="text-center">{{ $data->refBank->nama_bank }}</td>
-                            <td scope="col" class="text-center">{{ $data->nama_akun }}</td>
-                            <td scope="col" class="text-center">{{ $data->no_rekening }}</td>
-                            @if (auth()->user()->level == "admin")
+                          <td class="text-center">{{ $index + 1 }}</td>
+                          <td class="text-center">{{ $user->username }}</td>
+                          <td class="text-center">{{ $user->level }}</td>
+                          <td class="text-center">{{ $user->email }}</td>
                               <td class="text-center">
-                                <a href="{{ route('rekening.edit', $data->id) }}" class="btn btn-primary btn-sm m-1">Ubah</a>
-                                <form action="{{ route('rekening.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                <a href="{{ route('superadmin.edit', $user->id) }}" class="btn btn-primary btn-sm m-1">Ubah</a>
+                                <form action="{{ route('superadmin.destroy', $user->id) }}" method="POST" style="display:inline;">
                                   @csrf
                                   @method('DELETE')
                                   <button type="submit" class="btn btn-danger btn-sm m-1"
                                     onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                                 </form>
                               </td>
-                            @endif
                           </tr>
                         @endforeach
                       </tbody>
