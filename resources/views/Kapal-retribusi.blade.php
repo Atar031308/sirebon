@@ -56,7 +56,7 @@
                       @if (auth()->user()->level == "admin")
                       <th scope="col" class="text-center">Nama Pemilik</th>
                       @endif
-                      @if (auth()->user()->level == "karyawan")
+                      @if (auth()->user()->level == "wajib_retribusi")
                       <th scope="col" class="text-center">Nama Kapal</th>
                       <th scope="col" class="text-center">Nilai Retribusi</th>
                       <th scope="col" class="text-center">Tanggal Bayar</th>
@@ -75,7 +75,7 @@
               @if (auth()->user()->level == "admin")
               <td>{{ $data->nama_pemilik }}</td>
               @endif
-              @if (auth()->user()->level == "karyawan")
+              @if (auth()->user()->level == "wajib_retribusi")
               <td>{{ $data->nama_kapal }}</td>
                <td>Rp
                {{ number_format($data->jenisKapal->biaya_retribusi, 0, ',', '.') ?? 'Tidak ada biaya' }}

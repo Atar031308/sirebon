@@ -85,7 +85,7 @@
                                             <td class="text-nowrap">
                                                 {{ $data->tgl_bayar ? \Carbon\Carbon::parse($data->tgl_bayar)->format('d M Y') : '-' }}
                                             </td>
-                                            <td>{{ $data->tanggal_tidak_bayar }}</td>
+                                            <td>{{ $data->tindaklanjut_tgl }}</td>
                                             <td class="text-center">
                                                 @if ($data->status === 'S')
                                                 <span class="badge badge-success">Sesuai</span>

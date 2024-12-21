@@ -78,6 +78,8 @@ class PembayaranController extends Controller
         ]);
 
         $konfirmasi->status = $request->status === 'sesuai' ? 'S' : 'T';
+        $konfirmasi->tindaklanjut_tgl = now();
+        $konfirmasi->tindaklanjut_user = 'Admin';
         $konfirmasi->save();
 
         return redirect()->back()->with('success', 'Status pembayaran berhasil diperbarui.');
